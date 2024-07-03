@@ -1,5 +1,7 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import HomeHeroSection from "./HomeHeroSection";
+import HomeHeroSection from "../components/HomeHeroSection";
+import HomeClipTextSection from "../components/HomeClipTextSection";
+import HomeFirstInfo from "../components/HomeFirstInfo";
 
 const Home = () => {
     return (
@@ -10,6 +12,8 @@ const Home = () => {
             </Helmet>
             <main>
                 <HomeHeroSection />
+                <HomeClipTextSection />
+                <HomeFirstInfo />
             </main>
         </HelmetProvider>
     );

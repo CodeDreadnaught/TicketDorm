@@ -60,6 +60,11 @@
   .home-hero-section {
     background: linear-gradient(90deg, rgba(203, 0, 227, 0.1) 1.01%, rgba(203, 0, 227, 0.15) 25.76%, rgba(203, 0, 227, 0.18) 50.5%, rgba(203, 0, 227, 0.19) 75.25%, rgba(203, 0, 227, 0.2) 100%), url("./assets/landing-page-images/hero-background-image.webp");
   }
+  .clip-text-section {
+    background: url("/src/assets/landing-page-images/text-clip-background-image.jpg");
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 @layer utilities {
