@@ -34,6 +34,15 @@
   input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
     @apply hidden;
   }
+  footer h3 {
+    @apply text-black mb-[1.5rem] lg:mb-[3rem] leading-[1.936rem] font-medium;
+  }
+  footer p {
+    @apply text-[rgba(30,30,30,1)] leading-[1.8rem];
+  }
+  footer p:not(:last-child) {
+    @apply mb-[0.8rem];
+  }
 }
 
 @layer components {
