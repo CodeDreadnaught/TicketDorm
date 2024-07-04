@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
-import FooterSocialIconWrapper from "./FooterSocialIconWrapper";
-import MetaIcon from "../assets/icons/meta-icon.svg";
-import XIcon from "../assets/icons/x-icon.svg";
-import InstagramIcon from "../assets/icons/instagram-icon.svg";
-import TicTokIcon from "../assets/icons/tic-tok-icon.svg";
+import FooterCTA from "./FooterCTA";
+import FooterSocials from "./FooterSocials";
 
 const DesktopFooter = props => {
     return (
@@ -36,13 +33,8 @@ const DesktopFooter = props => {
             </section>
             <section className="h-full flex flex-col justify-between">
                 <section className="center">
-                    <Link to="/contact-us"><button className="bg-[rgba(14,72,135,1)] text-white px-[2rem] py-[1rem] rounded-[40px]">Get In Touch</button></Link>
-                    <section className="flex gap-[1.6rem] mt-[2.4rem]">
-                        <FooterSocialIconWrapper url="#" image={MetaIcon} type="Meta" />
-                        <FooterSocialIconWrapper url="#" image={XIcon} type="X" />
-                        <FooterSocialIconWrapper url="#" image={InstagramIcon} type="Instagram" />
-                        <FooterSocialIconWrapper url="#" image={TicTokIcon} type="TicTok" />
-                    </section>
+                    <FooterCTA />
+                    <FooterSocials />
                 </section>
                 <section className="text-right">
                     <p>&copy; {props.currentYear} — TicketDorm</p>
