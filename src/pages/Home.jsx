@@ -2,6 +2,8 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import HomeHeroSection from "../components/HomeHeroSection";
 import HomeClipTextSection from "../components/HomeClipTextSection";
 import HomeFirstInfo from "../components/HomeFirstInfo";
+import HomeSellTicketSection from "../components/HomeSellTicketSection";
+import HomeCTASection from "../components/HomeCTASection";
 
 const Home = () => {
     return (
@@ -14,6 +16,8 @@ const Home = () => {
                 <HomeHeroSection />
                 <HomeClipTextSection />
                 <HomeFirstInfo />
+                <HomeSellTicketSection />
+                <HomeCTASection />
             </main>
         </HelmetProvider>
     );
