@@ -15,7 +15,7 @@ const HomeHeroSection = () => {
     }, []);
 
     return (
-        <div className={`home-hero-section h-[100dvh] bg-cover bg-center pt-[5rem] lg:pt-[8rem]`}>
+        <div className={`home-hero-section h-[${heroHeight}] bg-cover bg-center pt-[5rem] lg:pt-[8rem]`}>
             <section className="center text-white text-center px-[1.6rem] lg:px-[8.8rem] h-[calc(100vh-5rem)] lg:h-[calc(100vh-8rem)]">
                 <section className="center">
                     <h1 className="font-robotoSerif mb-[1.6rem] lg:mb-[2.4rem] font-bold text-[2rem] lg:text-[4.8rem] leading-[2.342rem] lg:leading-[5.621rem]">Unlock Unforgettable Experiences with TicketDorm</h1>
