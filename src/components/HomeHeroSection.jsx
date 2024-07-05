@@ -10,8 +10,13 @@ const HomeHeroSection = () => {
             setHeroHeight(window.innerHeight);
         };
 
+        document.addEventListener("DOMContentLoaded", updateHeroHeight);
         window.addEventListener("resize", updateHeroHeight);
-        return () => window.removeEventListener("resize", updateHeroHeight);
+
+        return () => {
+            document.removeEventListener("DOMContentLoaded", updateHeroHeight);
+            window.removeEventListener("resize", updateHeroHeight);
+        }
     }, []);
 
     return (
