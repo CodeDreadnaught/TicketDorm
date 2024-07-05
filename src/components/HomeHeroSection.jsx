@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 import HeroSearchBar from "./HeroSearchBar";
 
 const HomeHeroSection = () => {
-    const [ heroHeight, setHeroHeight ] = useState("100dvh");
+    const [ heroHeight, setHeroHeight ] = useState(window.innerHeight);
 
     useEffect(() => {
         const updateHeroHeight = () => {
-            setTimeout(() => {
-                setHeroHeight(window.innerHeight);
-            }, 2000);
+            setHeroHeight(window.innerHeight);
         };
 
         window.addEventListener("resize", updateHeroHeight);

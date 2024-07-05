@@ -9,7 +9,7 @@
 
 @layer base {
   * {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
   }
   html {
     font-size: 62.5%;
@@ -67,6 +67,7 @@
     }
   }
   .home-hero-section {
+    height: 100dvh;
     background: linear-gradient(90deg, rgba(203, 0, 227, 0.1) 1.01%, rgba(203, 0, 227, 0.15) 25.76%, rgba(203, 0, 227, 0.18) 50.5%, rgba(203, 0, 227, 0.19) 75.25%, rgba(203, 0, 227, 0.2) 100%), url("./assets/landing-page-images/hero-background-image.webp");
   }
   .clip-text-section {
