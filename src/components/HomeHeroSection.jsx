@@ -7,7 +7,9 @@ const HomeHeroSection = () => {
 
     useEffect(() => {
         const updateHeroHeight = () => {
-            setHeroHeight(window.innerHeight);
+            setTimeout(() => {
+                setHeroHeight(window.innerHeight);
+            }, 2000);
         };
 
         window.addEventListener("resize", updateHeroHeight);
