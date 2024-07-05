@@ -9,8 +9,8 @@ const HomeFirstInfo = () => {
                     <h1 className="font-medium text-[2rem] leading-[2.342rem] lg:text-[3.2rem] lg:leading-[3.747rem] mb-[1.6rem] lg:mb-[2.4rem]">Secure & Easy Ticketing</h1>
                     <p className="leading-[2.5rem] lg:leading-[4rem] lg:text-[2.4rem] lg:text-justify">At TicketDorm, we prioritize your security and convenience. Our streamlined checkout process and encrypted payment gateways ensure that your transactions are safe and your personal information is protected. Buying tickets has never been easier – with just a few clicks, you can secure your spot at the hottest events in town.</p>
                 </section>
-                <section className="lg:w-[60rem] w-full h-[15rem] lg:h-full">
-                    <img src={EasyTicketImage} alt="Info Image" className="size-full object-cover rounded-[20px]" />
+                <section className="lg:w-[60rem]  w-full center h-[15rem] lg:h-full">
+                    <img src={EasyTicketImage} alt="Info Image" className="size-full object-cover w-[28rem] lg:w-full rounded-[5px]" />
                 </section>
             </section>
             <section className="flex flex-col lg:items-center lg:flex-row gap-[1.6rem] lg:gap-[6.4rem] lg:justify-between">
