@@ -9,7 +9,7 @@
 
 @layer base {
   * {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
   }
   html {
     font-size: 62.5%;
@@ -50,7 +50,7 @@
     transform: rotate(45deg) translateY(0.85rem);
   }
   .hamburger-icon.active > section:nth-child(2) {
-    display: none;
+    opacity: 0;
   }
   .hamburger-icon.active > section:nth-child(3) {
     transform: rotate(-45deg) translateY(-0.85rem);
