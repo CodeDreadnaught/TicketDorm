@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import FooterSocials from "./FooterSocials";
 
 const MobileFooter = props => {
     return (
         <section className="lg:hidden center text-center">
-           <Logo /> 
-           <section className="mt-[1.6rem]">
+           <Logo />
+           <section className="my-[1.6rem]">
+            <p><Link to="/about-us">About TicketDorm</Link></p>
+           </section> 
+           <section>
             <h3>Contact</h3>
             <p>+234 (0) 867-1663-419</p>
             <p>support@ticketdorm.com</p>

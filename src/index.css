@@ -77,6 +77,12 @@
   .home-sell-ticket-section {
     background: linear-gradient(90deg, rgba(142, 61, 152, 0.75) 1.67%, rgba(142, 61, 152, 0.75) 5.64%, rgba(142, 61, 152, 0.75) 10.61%, rgba(142, 61, 152, 0.75) 15.57%, rgba(142, 61, 152, 0.75) 20.54%, rgba(142, 61, 152, 0.75) 30.47%, rgba(91, 73, 94, 0.75) 75.17%, rgba(91, 73, 94, 0.75) 90.07%), url("./assets/landing-page-images/sell-ticket-effortlessly-image.jpg");
   }
+  .event-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./assets/event-hero-bg.jpg);
+  }
+  .about-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./assets/about-us-images/hero-bg.jpg);
+  }
 }
 
 @layer utilities {

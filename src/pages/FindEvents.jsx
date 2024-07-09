@@ -9,7 +9,7 @@ const FindEvents = () => {
                 <title>Find Events | TicketDorm</title>
                 </Helmet>
             <main>
-                <SharedHeroSection findEvents={true} heading="Discover Your Next Adventure with TicketDorm" text="Explore a world of exciting events – from electrifying concerts and thrilling sports games to captivating theater performances and vibrant festivals" />
+                <SharedHeroSection showHeroSearchBar={true} findEvents="event-hero" width="lg:w-[87.1rem]" heading="Discover Your Next Adventure with TicketDorm" text="Explore a world of exciting events – from electrifying concerts and thrilling sports games to captivating theater performances and vibrant festivals" />
             </main>
         </HelmetProvider>
     );
