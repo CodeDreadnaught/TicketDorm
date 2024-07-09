@@ -7,7 +7,7 @@ const SharedHeroSection = props => {
                 <section className={`text-white center ${props.width}`}>
                     <h1 className="font-robotoSerif text-center font-bold text-[2rem] mb-[1.6rem] leading-[2.342rem] lg:text-[4.8rem] lg:leading-[5.621rem]">{props.heading}</h1>
                     <p className={(props.showHeroSearchBar ? "mb-[4rem]" : "") + " font-robotoSerif text-center leading-[1.874rem] lg:text-[2.4rem] lg:leading-[2.81rem]"}>{props.text}</p>
-                    {props.showHeroSearchBar && <HeroSearchBar />}
+                    {props.showHeroSearchBar && <HeroSearchBar findEventspage={props.findEventspage} showDisplayedElement={props.showDisplayedElement} />}
                 </section>
             </section>
         </section>

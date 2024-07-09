@@ -9,7 +9,7 @@
 
 @layer base {
   * {
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
   }
   html {
     font-size: 62.5%;
@@ -46,6 +46,9 @@
 }
 
 @layer components {
+  .prevent-scrolling {
+    @apply overflow-y-hidden
+  }
   .hamburger-icon.active > section:nth-child(1) {
     transform: rotate(45deg) translateY(0.85rem);
   }
@@ -82,6 +85,9 @@
   }
   .about-hero {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./assets/about-us-images/hero-bg.jpg);
+  }
+  .event-card-wrapper::-webkit-scrollbar {
+    @apply hidden
   }
 }
 
