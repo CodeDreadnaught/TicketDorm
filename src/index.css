@@ -9,7 +9,7 @@
 
 @layer base {
   * {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
   }
   html {
     font-size: 62.5%;
