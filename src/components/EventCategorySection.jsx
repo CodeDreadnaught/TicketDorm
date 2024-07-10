@@ -15,7 +15,7 @@ const EventCategorySection = props => {
                     <h1 className="font-semibold leading-[2.42rem] lg:text-[3.2rem] lg:leading-[3.873rem]">{props.category}</h1>
                     <p>
                         <Link onClick={() => setEventCategory(props.category)} 
-                        className="leading-[1.936rem] lg:text-[2.4rem] lg:leading-[2.905rem] text-primaryPurple" to="/all-category-events/#categories">
+                        className="leading-[1.936rem] lg:text-[2.4rem] lg:leading-[2.905rem] text-primaryPurple" to="/all-category-events">
                             View More
                         </Link>
                     </p>
