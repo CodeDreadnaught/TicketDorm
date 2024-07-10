@@ -82,7 +82,7 @@ const EventCard = props => {
                 </section>
                 <section className="px-[0.5rem] font-inter pt-[0.6rem] lg:pt-[2rem] pb-[0.5rem] lg:pb-[1rem] rounded-b-[5px]">
                     <h1 className="font-semibold text-[1.3rem] leading-[1.573rem] h-[1.6rem] lg:h-[2.4rem] w-[13.5rem] lg:w-[25rem] lg:text-[1.8rem] lg:leading-[2.42rem] overflow-hidden whitespace-nowrap text-ellipsis">{props.eventName}</h1>
-                    <p className="text-[blue] text-[1.2rem] leading-[1.452rem] lg:text-[1.6rem] lg:leading-[1.936rem] mt-[0.4rem] lg:mt-[1.2rem] w-[80%] lg:w-full">
+                    <p className="text-[#1B67BB] text-[1.2rem] leading-[1.452rem] lg:text-[1.6rem] lg:leading-[1.936rem] mt-[0.4rem] lg:mt-[1.2rem] w-[80%] lg:w-full">
                         {`${eventDay} ${eventMonth} ${date}, ${year}`}
                         <span className="hidden lg:inline"> ●</span> {props.eventTime} GMT +1</p>
                     <p className="my-[0.4rem] lg:my-[0.8rem] text-[1.3rem] leading-[1.573rem] lg:text-[1.6rem] lg:leading-[1.936rem]">{(typeof props.ticketPrice) === "number" ? "Price ●" : ""} {(typeof props.ticketPrice) === "number" ? "₦" : ""}{props.ticketPrice}</p>
