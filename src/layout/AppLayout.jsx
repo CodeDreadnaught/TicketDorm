@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 
 const AppLayout = () => {
     const [ allEvents, setAllEvents ] = useState([]),
+    [ eventCategory, setEventCategory ] = useState(""),
     [ showModal, setShowModal ] = useState({
         heading: "Error",
         message: "You are not authorized to perform this action",
@@ -22,7 +23,7 @@ const AppLayout = () => {
 
     return (
         <div className="app-container">
-            <AppContext.Provider value={{ allEvents, setAllEvents, showModal, setShowModal }}>
+            <AppContext.Provider value={{ allEvents, setAllEvents, eventCategory, setEventCategory, showModal, setShowModal }}>
                 <Alert />
                 <Header />
                 <Outlet />

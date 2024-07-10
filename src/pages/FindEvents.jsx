@@ -29,8 +29,8 @@ const FindEvents = () => {
                 <SharedHeroDivider />
                 {allEvents.length > 0 ? <EventSectionWrapper displayedElement={displayedElement} /> : 
                 <section className="text-center center font-montserrat px-[1.6rem] lg:px-[8.8rem] mb-[2.4rem] lg:mb-[4rem]">
-                    <FaExclamationTriangle className="text-[4.5rem] lg:text-[6rem] text-yellow-500 mb-[1rem]"/>
-                    <p className="font-semibold">There might be an issue with your internet connection, refresh this page to see available events</p>
+                    <FaExclamationTriangle className="text-[4.5rem] lg:text-[6rem] text-yellow-500"/>
+                    <p className="font-semibold my-[1rem]">There might be an issue with your internet connection, we are actively reloading this page to show you all available events.</p>
                 </section>
                 }
             </main>
