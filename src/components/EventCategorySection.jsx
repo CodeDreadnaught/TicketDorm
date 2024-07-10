@@ -9,7 +9,7 @@ const EventCategorySection = props => {
             <section>
                 <section className="flex justify-between items-center mb-[1.6rem]">
                     <h1 className="font-semibold leading-[2.42rem] lg:text-[3.2rem] lg:leading-[3.873rem]">{props.category}</h1>
-                    <p><Link className="leading-[1.936rem] lg:text-[2.4rem] lg:leading-[2.905rem] text-primaryPurple">View More</Link></p>
+                    <p><Link className="leading-[1.936rem] lg:text-[2.4rem] lg:leading-[2.905rem] text-primaryPurple" to="/all-category-events">View More</Link></p>
                 </section>
                 <section className="event-card-wrapper flex overflow-x-auto gap-[1rem] lg:gap-[2.4rem] p-[0.5rem_0]">{events}</section>
             </section>

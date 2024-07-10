@@ -29,7 +29,7 @@ const fetchAllEvents = async () => {
     const response = await fetch(`${apiUrl}/event/all`),
         data = await response.json();
 
-         return data;
+         return data.data.events;
 };
 
 export { createAccount, signIn, fetchAllEvents };
