@@ -14,7 +14,7 @@ const LoadingAnimation = () => {
         return () => document.body.classList.add("prevent-scrolling");
     }, [showLoadingAnimation]);
 
-    const LoadingAnimationStyle = showLoadingAnimation ? "fixed w-full h-full center top-0 left-0 bg-[rgba(0,0,0,0.95)] z-[30] linear-transistion" : "hidden";
+    const LoadingAnimationStyle = showLoadingAnimation ? "fixed w-full h-full center top-0 left-0 bg-[rgba(0,0,0,0.85)] z-[30] linear-transistion" : "hidden";
 
     const spinnerStyles = {
         animation: "move 1s alternate infinite",

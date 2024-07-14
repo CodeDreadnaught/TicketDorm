@@ -146,7 +146,7 @@ const Event = props => {
                                     <section className="leading-[1.936rem] lg:leading-[2.905rem] lg:text-[2rem] font-medium">TicketDorm</section>
                                 </section>
                                 <section className="w-[25%] lg:flex justify-end">
-                                    <Link><button className="bg-[#2777CD] text-white center w-full lg:w-[13rem] leading-[1.694rem] lg:leading-[2.905rem] rounded-[10px] p-[0.6rem] lg:p-[1rem] text-[1.4rem] lg:text-[1.9rem]">Contact</button></Link>
+                                    <Link><button className="bg-[#2777CD] text-white center w-full lg:w-[13rem] leading-[1.694rem] lg:leading-[2.905rem] rounded-[10px] p-[1rem] text-[1.4rem] lg:text-[1.9rem]">Contact</button></Link>
                                 </section>
                         </section>
                     </section>
