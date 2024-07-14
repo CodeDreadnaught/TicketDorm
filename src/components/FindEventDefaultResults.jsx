@@ -4,7 +4,7 @@ import EventCategorySection from "./EventCategorySection";
 
 const FindEventDefaultResults = props => {
     const { allEvents } = useContext(AppContext);
-    console.log(allEvents);
+    
     return (
         <div className="">
             <EventCategorySection category="Upcoming Events" events={[...allEvents].reverse().slice(0, 6)} />

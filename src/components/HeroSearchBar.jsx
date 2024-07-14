@@ -10,7 +10,7 @@ const HeroSearchBar = props => {
 
         if (props.findEventspage) {
             if (value) {
-                props.showDisplayedElement(<FindEventSearchResults />);
+                props.showDisplayedElement(<FindEventSearchResults searchText={value} />);
             } else {
                 props.showDisplayedElement(<FindEventDefaultResults />);
             }
