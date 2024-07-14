@@ -15,10 +15,10 @@ const AllCategoryEvents = () => {
     let event;
 
     switch(eventCategory) {
-        case "Top Trending Events" :
+        case "Upcoming Events" :
             event = topTrendingEvents;
         break;
-        case "Nightlife Events" :
+        case "Nighttime Soirees" :
             event = nightLifeEvents;
         break;
         case "Comedy Shows" :

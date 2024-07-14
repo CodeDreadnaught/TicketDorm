@@ -26,10 +26,14 @@ const signIn = async userInfo => {
 };
 
 const fetchAllEvents = async () => {
-    const response = await fetch(`${apiUrl}/event/all`),
+    try {
+        const response = await fetch(`${apiUrl}/event/all`),
         data = await response.json();
 
          return data.data.events;
+    } catch(error) {
+        throw Error("CodeDreadnaught, TicketDorm is unable to connect to the server.");
+    }
 };
 
 export { createAccount, signIn, fetchAllEvents };

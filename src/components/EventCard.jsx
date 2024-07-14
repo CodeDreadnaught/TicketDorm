@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import AppContext from "../context/AppContext";
 
 const EventCard = props => {
+    const { setShowLoadingAnimation } = useContext(AppContext);
     // const eventDate = new Date(props.eventDate); 
     const eventDate = new Date("08-30-2024"); 
 
@@ -75,7 +78,7 @@ const EventCard = props => {
     }
 
     return (
-        <Link>
+        <Link to={`/view-event/${props._id}`} onClick={() => setShowLoadingAnimation(true)}>
             <section className={`rounded-t-[20px] rounded-b-[5px] bg-[#F8F9FA] flex-[0_0_13.5rem] lg:flex-[0_0_25rem] ${props.width}`}>
                 <section className="rounded-t-[20px] h-[10rem] lg:h-[17rem]">
                     <img src={props.eventCoverPhotos[0]} alt="Event Poster" className="rounded-t-[20px] rounded-b-[5px] size-full object-cover" />

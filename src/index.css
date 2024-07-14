@@ -107,6 +107,7 @@
     }
     to {
       transform: translateY(-5rem);
+      color: var(--primary-purple);
     }
   }
 }
