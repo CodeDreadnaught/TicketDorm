@@ -26,15 +26,15 @@ const AppLayout = () => {
 
     return (
         <div className="app-container">
-            <EnsurePageLoadsFromTop>
-                <AppContext.Provider value={{ allEvents, setAllEvents, eventCategory, setEventCategory, showLoadingAnimation, setShowLoadingAnimation, showModal, setShowModal }}>
-                    <Alert />
-                    <LoadingAnimation />
-                    <Header />
-                    <Outlet />
-                    <Footer />
-                </AppContext.Provider>
-            </EnsurePageLoadsFromTop>
+            <AppContext.Provider value={{ allEvents, setAllEvents, eventCategory, setEventCategory, showLoadingAnimation, setShowLoadingAnimation, showModal, setShowModal }}>
+                <EnsurePageLoadsFromTop>
+                <Alert />
+                <LoadingAnimation />
+                <Header />
+                <Outlet />
+                <Footer />
+                </EnsurePageLoadsFromTop>
+            </AppContext.Provider>
         </div>
     );
 };
