@@ -7,6 +7,9 @@ import FindEvents from "./pages/FindEvents";
 import About from "./pages/About";
 import ViewAllCategoryEvents from "./pages/ViewAllCategoryEvents";
 import Event from "./pages/Event";
+import SignUp from "./pages/SiginUp";
+import SignIn from "./pages/SiginIn";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -17,6 +20,9 @@ const App = () => {
         <Route path="/about-us" element={<About />} />
         <Route path="/all-category-events" element={<ViewAllCategoryEvents />} />
         <Route path="/view-event/:id" element={<Event />} loader={currentEventLoader} errorElement={<TriggerAlert />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="*" element={<NotFound />} />
       </Route>  
   ));
 
