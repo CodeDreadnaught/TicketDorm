@@ -9,6 +9,12 @@ import ViewAllCategoryEvents from "./pages/ViewAllCategoryEvents";
 import Event from "./pages/Event";
 import SignUp from "./pages/SiginUp";
 import SignIn from "./pages/SiginIn";
+import VerifyOTP from "./pages/VerifyOTP";
+import ForgotPassword from "./pages/ForgotPassword";
+import CheckEmail from "./pages/CheckEmail";
+import ResetPassword from "./pages/ResetPassword";
+import ProtectedRoutes from "./utilis/ProtectedRoutes";
+import ProtectedOTPRoute from "./utilis/ProtectedOTPRoute";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
@@ -22,6 +28,15 @@ const App = () => {
         <Route path="/view-event/:id" element={<Event />} loader={currentEventLoader} errorElement={<TriggerAlert />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/check-email" element={<CheckEmail />} />
+        <Route path="/reset-password/:id" element={<ResetPassword />}  />
+        <Route element={<ProtectedRoutes />}>
+
+        </Route>
+        <Route element={<ProtectedOTPRoute />}>
+          <Route path="/verify-otp" element={<VerifyOTP />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Route>  
   ));

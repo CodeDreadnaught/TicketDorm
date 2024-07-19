@@ -9,7 +9,11 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const AppLayout = () => {
-    const [ allEvents, setAllEvents ] = useState([]),
+    const [ user, setUser ] = useState(null),
+    [ token, setToken ] = useState(localStorage.getItem("site") || null),
+    [ verificationEmail, setVerificationEmail ] = useState(""),
+    [ hasOTP, setHasOTP ] = useState(false),
+    [ allEvents, setAllEvents ] = useState([]),
     [ eventCategory, setEventCategory ] = useState(""),
     [ showLoadingAnimation, setShowLoadingAnimation ] = useState(false),
     [ showModal, setShowModal ] = useState({
@@ -26,7 +30,7 @@ const AppLayout = () => {
 
     return (
         <div className="app-container">
-            <AppContext.Provider value={{ allEvents, setAllEvents, eventCategory, setEventCategory, showLoadingAnimation, setShowLoadingAnimation, showModal, setShowModal }}>
+            <AppContext.Provider value={{ user, setUser, token, setToken, allEvents, setAllEvents, eventCategory, setEventCategory, showLoadingAnimation, setShowLoadingAnimation, showModal, setShowModal, verificationEmail, setVerificationEmail, hasOTP, setHasOTP }}>
                 <EnsurePageLoadsFromTop>
                 <Alert />
                 <LoadingAnimation />
