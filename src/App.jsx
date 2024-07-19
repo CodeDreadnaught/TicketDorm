@@ -13,6 +13,7 @@ import VerifyOTP from "./pages/VerifyOTP";
 import ForgotPassword from "./pages/ForgotPassword";
 import CheckEmail from "./pages/CheckEmail";
 import ResetPassword from "./pages/ResetPassword";
+import CheckoutPage from "./pages/CheckoutPage";
 import ProtectedRoutes from "./utilis/ProtectedRoutes";
 import ProtectedOTPRoute from "./utilis/ProtectedOTPRoute";
 import NotFound from "./pages/NotFound";
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/check-email" element={<CheckEmail />} />
         <Route path="/reset-password/:id" element={<ResetPassword />}  />
+        <Route path="/checkout-page" element={<CheckoutPage />}  />
         <Route element={<ProtectedRoutes />}>
 
         </Route>

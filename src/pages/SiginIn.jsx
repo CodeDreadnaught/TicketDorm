@@ -9,7 +9,7 @@ import { FaEyeSlash } from "react-icons/fa";
 
 const SignIn = () => {
     const navigate = useNavigate(),
-    { setShowModal, setUser, setToken, setShowLoadingAnimation, setVerificationEmail } = useContext(AppContext);
+    { setShowModal, setUser, setToken, setShowLoadingAnimation } = useContext(AppContext);
 
     const [ showPassword, setShowPassword ] = useState(false),
     [formData, setFormData] = useState({
@@ -41,7 +41,6 @@ const SignIn = () => {
         setShowLoadingAnimation(true);
         signIn(formData)
         .then(data => {
-            setVerificationEmail(formData.email);
             setShowLoadingAnimation(false);
             switch (data.message) {
                 case "User Login successful" :

@@ -21,7 +21,7 @@ const SignUp = () => {
         confirmPassword: false
     });
 
-    const { setShowLoadingAnimation, setShowModal, setHasOTP } = useContext(AppContext);
+    const { setShowLoadingAnimation, setShowModal, setHasOTP, setVerificationEmail } = useContext(AppContext);
 
     const toggleShowPassword = event => {
         const { id } = event.target.parentElement;
@@ -53,6 +53,7 @@ const SignUp = () => {
                     success: true
                 });
 
+                setVerificationEmail(formData.email);
                 setHasOTP(true);
                 navigate("/verify-otp");
                 reset();

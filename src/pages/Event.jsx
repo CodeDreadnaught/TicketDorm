@@ -15,6 +15,10 @@ const Event = props => {
         setShowLoadingAnimation(false);
     }, []);
 
+    const clickHandler = () => {
+        console.log("Clicked!");
+    }
+
     // const eventDate = new Date(props.eventDate); 
     const eventDate = new Date("08-30-2024"); 
 
@@ -110,7 +114,7 @@ const Event = props => {
                                 <section className="w-full lg:h-[15rem] center lg:rounded-[12px] lg:border border-gray-600 lg:px-[2.4rem]">
                                     <section className="w-full text-center">
                                         <p className="leading-[2.42rem] lg:text-[2.4rem] lg:leading-[2.905rem] mb-[1.2rem] lg:mb-[2rem]">Attend Event</p>
-                                        <Link><button className="w-full rounded-[10px] p-[1.2rem] lg:p-[1rem] text-white leading-[1.874rem] lg:leading-[2.905rem] bg-primaryPurple lg:text-[2.4rem]">Get Ticket</button></Link>
+                                        <Link onClick={clickHandler}><button className="w-full rounded-[10px] p-[1.2rem] lg:p-[1rem] text-white leading-[1.874rem] lg:leading-[2.905rem] bg-primaryPurple lg:text-[2.4rem]">Get Ticket</button></Link>
                                     </section>
                                 </section>
                             </section>
