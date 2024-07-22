@@ -15,6 +15,7 @@ const AppLayout = () => {
     [ hasOTP, setHasOTP ] = useState(false),
     [ allEvents, setAllEvents ] = useState([]),
     [ currentEvent, setCurrentEvent ] = useState(""),
+    [ verifyPayment, setVerifyPayment ] = useState(null),
     [ eventCategory, setEventCategory ] = useState(""),
     [ showLoadingAnimation, setShowLoadingAnimation ] = useState(false),
     [ showModal, setShowModal ] = useState({
@@ -34,7 +35,7 @@ const AppLayout = () => {
             <AppContext.Provider value={{ 
                 user, setUser, token, setToken, allEvents, setAllEvents, eventCategory, setEventCategory, 
                 showLoadingAnimation, setShowLoadingAnimation, showModal, setShowModal, verificationEmail, 
-                setVerificationEmail, hasOTP, setHasOTP, currentEvent, setCurrentEvent 
+                setVerificationEmail, hasOTP, setHasOTP, currentEvent, setCurrentEvent, verifyPayment, setVerifyPayment
                 }}>
                 <EnsurePageLoadsFromTop>
                 <Alert />

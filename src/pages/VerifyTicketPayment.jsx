@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import AppContext from "../context/AppContext";
 import { Link } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { FaCheck } from "react-icons/fa6";
 
 const VerifyTicketPayment = () => {
+    const { setVerifyPayment } = useContext(AppContext);
+
     return (
         <HelmetProvider>
             <Helmet>
@@ -19,7 +23,7 @@ const VerifyTicketPayment = () => {
                                 </section>
                                 <section className="font-medium mt-[1.5rem]">Your Receipt Has Delivered Via Email.</section>
                             </section>
-                            <Link to="/" className="w-full"><button className="h-[5.7rem] bg-[#C6C7F8] font-medium rounded-[5px] w-full">Back to Home</button></Link>
+                            <Link to="/" onClick={() => setVerifyPayment(null)} className="w-full"><button className="h-[5.7rem] bg-[#C6C7F8] font-medium rounded-[5px] w-full">Back to Home</button></Link>
                         </section>
                     </section>
                 </div>

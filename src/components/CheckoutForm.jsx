@@ -3,7 +3,7 @@ import AppContext from "../context/AppContext";
 import { buyTicket } from "../requests/APIRequest";
 
 const CheckoutForm = props => {
-    const { setShowModal, setShowLoadingAnimation } = useContext(AppContext),
+    const { setShowModal, setShowLoadingAnimation, setVerifyPayment } = useContext(AppContext),
     [ formData, setFormData ] = useState({
         buyer: "",
         email: "",
@@ -27,12 +27,7 @@ const CheckoutForm = props => {
         .then(data => {
             setShowLoadingAnimation(false);
             if (data.success) {
-                // setShowModal({
-                //     heading: "Payment Initialized",
-                //     message: "Your are now being redirected to a payment gateway to complete your purchase.",
-                //     on: true,
-                //     success: true
-                // });
+                setVerifyPayment(true);
                 window.location.href = data.authorization_url;
             } else {
                 setShowModal({
