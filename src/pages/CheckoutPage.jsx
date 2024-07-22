@@ -1,11 +1,17 @@
-import { useContext } from "react";
-import AppContext from "../context/AppContext";
+import { useEffect, useContext } from "react";
+import { useLoaderData } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import AppContext from "../context/AppContext";
 import CheckoutCard from "../components/CheckoutCard";
 import CheckoutForm from "../components/CheckoutForm";
 
 const CheckoutPage = () => {
-    const { currentEvent } = useContext(AppContext);
+    const currentEvent = useLoaderData(),
+    { setShowLoadingAnimation } = useContext(AppContext);
+
+    useEffect(() => {
+        setShowLoadingAnimation(false);
+    }, []);
     
     return (
         <HelmetProvider>

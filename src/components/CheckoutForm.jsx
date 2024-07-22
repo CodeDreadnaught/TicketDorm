@@ -1,11 +1,9 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
 import { buyTicket } from "../requests/APIRequest";
 
 const CheckoutForm = props => {
     const { setShowModal, setShowLoadingAnimation } = useContext(AppContext),
-    navigate = useNavigate(),
     [ formData, setFormData ] = useState({
         buyer: "",
         email: "",

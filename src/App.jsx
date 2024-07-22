@@ -32,7 +32,7 @@ const App = () => {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/check-email" element={<CheckEmail />} />
         <Route path="/reset-password/:id" element={<ResetPassword />}  />
-        <Route path="/checkout-page" element={<CheckoutPage />}  />
+        <Route path="/checkout-page/:id" element={<CheckoutPage />} loader={currentEventLoader} errorElement={<TriggerAlert />} />
         <Route element={<ProtectedRoutes />}>
 
         </Route>
