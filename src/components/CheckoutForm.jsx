@@ -1,9 +1,11 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
 import { buyTicket } from "../requests/APIRequest";
 
 const CheckoutForm = props => {
     const { setShowModal, setShowLoadingAnimation } = useContext(AppContext),
+    navigate = useNavigate(),
     [ formData, setFormData ] = useState({
         buyer: "",
         email: "",
@@ -26,7 +28,22 @@ const CheckoutForm = props => {
         buyTicket(formData, props.event._id)
         .then(data => {
             setShowLoadingAnimation(false);
-            console.log(data);
+            if (data.success) {
+                // setShowModal({
+                //     heading: "Payment Initialized",
+                //     message: "Your are now being redirected to a payment gateway to complete your purchase.",
+                //     on: true,
+                //     success: true
+                // });
+                window.location.href = data.authorization_url;
+            } else {
+                setShowModal({
+                    heading: "Initialization Failed",
+                    message: "There was an error with initializing your ticket purchase, please try again.",
+                    on: true,
+                    success: false
+                });
+            }
         })
         .catch(error => {
             setShowLoadingAnimation(false);
