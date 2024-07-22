@@ -103,7 +103,7 @@ const Event = props => {
                     <section className="h-[18rem] lg:h-[30.2rem] rounded-[20px] mt-[1.6rem] lg:mt-[2.5rem] mb-[3.2rem] lg:mb-[6.4rem]">
                         <img src={event.eventCoverPhotos[0]} alt="Event Image" className="size-full object-cover rounded-[20px]" />
                     </section>
-                    <section className="font-inter">
+                    <section className="font-montserrat">
                         <section className="flex flex-col lg:flex-row gap-[2rem] lg:gap-[6.8rem]">
                             <section className="lg:w-[calc(100%-36.6rem-3.4rem)]">
                             <p className="leading-[1.936rem] lg:leading-[2.905rem] lg:text-[2.4rem] mb-[1.2rem]">{`${eventDay} ${eventMonth} ${date}, ${year}`}</p>
@@ -137,7 +137,7 @@ const Event = props => {
                         </section>
                     </section>
                 </div>
-                <section className="mt-[2.5rem] lg:mt-[5.5rem] font-inter">
+                <section className="mt-[2.5rem] lg:mt-[5.5rem] font-montserrat">
                     <section className="px-[1.6rem] lg:px-[8.8rem]">
                         <h2 className="font-semibold text-[1.8rem] leading-[2.42rem] lg:text-[3.2rem] lg:leading-[3.873rem] mb-[0.6rem] lg:mb-[2.4rem]">Organizer</h2>
                     </section>
