@@ -14,6 +14,7 @@ const AppLayout = () => {
     [ verificationEmail, setVerificationEmail ] = useState(""),
     [ hasOTP, setHasOTP ] = useState(false),
     [ allEvents, setAllEvents ] = useState([]),
+    [ currentEvent, setCurrentEvent ] = useState(""),
     [ eventCategory, setEventCategory ] = useState(""),
     [ showLoadingAnimation, setShowLoadingAnimation ] = useState(false),
     [ showModal, setShowModal ] = useState({
@@ -30,7 +31,11 @@ const AppLayout = () => {
 
     return (
         <div className="app-container">
-            <AppContext.Provider value={{ user, setUser, token, setToken, allEvents, setAllEvents, eventCategory, setEventCategory, showLoadingAnimation, setShowLoadingAnimation, showModal, setShowModal, verificationEmail, setVerificationEmail, hasOTP, setHasOTP }}>
+            <AppContext.Provider value={{ 
+                user, setUser, token, setToken, allEvents, setAllEvents, eventCategory, setEventCategory, 
+                showLoadingAnimation, setShowLoadingAnimation, showModal, setShowModal, verificationEmail, 
+                setVerificationEmail, hasOTP, setHasOTP, currentEvent, setCurrentEvent 
+                }}>
                 <EnsurePageLoadsFromTop>
                 <Alert />
                 <LoadingAnimation />

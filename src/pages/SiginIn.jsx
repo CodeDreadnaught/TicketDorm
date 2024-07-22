@@ -50,7 +50,8 @@ const SignIn = () => {
 
                     setShowModal({
                         heading: "You're Logged In",
-                        message: `Welcome ${data.user.firstname}, lets create unforgettable experiences with ease and confidence.`,
+                        // message: `Welcome ${data.user.firstname}, lets create unforgettable experiences with ease and confidence.`,
+                        message: `Welcome, lets create unforgettable experiences with ease and confidence.`,
                         on: true,
                         success: true
                     });
