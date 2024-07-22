@@ -14,6 +14,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import CheckEmail from "./pages/CheckEmail";
 import ResetPassword from "./pages/ResetPassword";
 import CheckoutPage from "./pages/CheckoutPage";
+import VerifyTicketPayment from "./pages/VerifyTicketPayment";
 import ProtectedRoutes from "./utilis/ProtectedRoutes";
 import ProtectedOTPRoute from "./utilis/ProtectedOTPRoute";
 import NotFound from "./pages/NotFound";
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/check-email" element={<CheckEmail />} />
         <Route path="/reset-password/:id" element={<ResetPassword />}  />
         <Route path="/checkout-page/:id" element={<CheckoutPage />} loader={currentEventLoader} errorElement={<TriggerAlert />} />
+        <Route path="/verify-payment/:callback-reference" element={<VerifyTicketPayment />}  />
         <Route element={<ProtectedRoutes />}>
 
         </Route>

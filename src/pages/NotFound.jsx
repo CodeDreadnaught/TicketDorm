@@ -9,8 +9,8 @@ const NotFound = () => {
                 <title>Not Found | TicketDorm</title>
             </Helmet>
             <main>
-                <div className="pt-[5rem] lg:pt-[8rem]">
-                    <section className="h-[calc(100vh-5rem)] lg:h-[calc(100vh-8rem)] center">
+                <div className="fixed w-screen bg-white">
+                    <section className="h-screen center">
                         <section className="font-montserrat center">
                             <h1 className="font-semibold text-[2.5rem] lg:text-[4.8rem] lg:leading-[5.8rem] mb-[2.8rem]">Page Not Found</h1>
                             <section className="size-[20rem] mb-[2.8rem]">
