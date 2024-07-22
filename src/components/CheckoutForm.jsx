@@ -9,7 +9,7 @@ const CheckoutForm = props => {
         email: "",
         phoneNumber: ""
     });
-
+    
     const changeHandler = event => {
         const { name, value } = event.target;
 
@@ -28,6 +28,7 @@ const CheckoutForm = props => {
             setShowLoadingAnimation(false);
             if (data.success) {
                 setVerifyPayment(true);
+                localStorage.setItem("verifyPayment", JSON.stringify(true));
                 window.location.href = data.authorization_url;
             } else {
                 setShowModal({

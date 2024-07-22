@@ -15,7 +15,7 @@ const AppLayout = () => {
     [ hasOTP, setHasOTP ] = useState(false),
     [ allEvents, setAllEvents ] = useState([]),
     [ currentEvent, setCurrentEvent ] = useState(""),
-    [ verifyPayment, setVerifyPayment ] = useState(false),
+    [ verifyPayment, setVerifyPayment ] = useState(localStorage.getItem("verifyPayment") || null),
     [ eventCategory, setEventCategory ] = useState(""),
     [ showLoadingAnimation, setShowLoadingAnimation ] = useState(false),
     [ showModal, setShowModal ] = useState({

@@ -23,7 +23,10 @@ const VerifyTicketPayment = () => {
                                 </section>
                                 <section className="font-medium mt-[1.5rem]">Your Receipt Has Delivered Via Email.</section>
                             </section>
-                            <Link to="/" onClick={() => setVerifyPayment(null)} className="w-full"><button className="h-[5.7rem] bg-[#C6C7F8] font-medium rounded-[5px] w-full">Back to Home</button></Link>
+                            <Link to="/" onClick={() => {
+                                setVerifyPayment(null);
+                                localStorage.removeItem("verifyPayment");
+                            }} className="w-full"><button className="h-[5.7rem] bg-[#C6C7F8] font-medium rounded-[5px] w-full">Back to Home</button></Link>
                         </section>
                     </section>
                 </div>
