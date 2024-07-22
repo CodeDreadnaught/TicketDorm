@@ -6,6 +6,7 @@ import CheckoutForm from "../components/CheckoutForm";
 
 const CheckoutPage = () => {
     const { currentEvent } = useContext(AppContext);
+    
     return (
         <HelmetProvider>
             <Helmet>

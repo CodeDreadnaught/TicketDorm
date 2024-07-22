@@ -96,4 +96,21 @@ const resetPasswordRequest = async (userInfo, userID) => {
     }
 };
 
-export { createAccount, signIn, fetchAllEvents, verifyOTPRequest, forgetPasswordRequest, resetPasswordRequest };
+const buyTicket = async (userInfo, userID) => {
+    try {
+        const response = await fetch(`${apiUrl}/ticket\/buyticket/${userID}/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userInfo)
+            }),
+            data = await response.json();
+
+            return data;
+    } catch(error) {
+        throw Error("CodeDreadnaught, TicketDorm is unable to initiate ticket purchase.");
+    }
+};
+
+export { createAccount, signIn, fetchAllEvents, verifyOTPRequest, forgetPasswordRequest, resetPasswordRequest, buyTicket };
