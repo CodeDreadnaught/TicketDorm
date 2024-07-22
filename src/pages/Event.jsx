@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react";
 import AppContext from "../context/AppContext";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useParams, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
 import MoreEvents from "../components/MoreEvents";
 
