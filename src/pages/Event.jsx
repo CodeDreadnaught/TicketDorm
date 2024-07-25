@@ -19,8 +19,9 @@ const Event = props => {
         setCurrentEvent(event);
     }
 
-    // const eventDate = new Date(props.eventDate); 
-    const eventDate = new Date("08-30-2024"); 
+    const [ chosenDate, chosenMonth, chosenYear] = event.eventDate.split("-").reverse(),
+    chosenEventDate = `${chosenMonth}-${chosenDate}-${chosenYear}`,
+    eventDate = new Date(chosenEventDate);
 
     const day = eventDate.getDay(),
     date = eventDate.getDate(),
@@ -100,14 +101,14 @@ const Event = props => {
             </Helmet>
             <main>
                 <div className="pt-[5rem] lg:pt-[8rem] px-[1.6rem] lg:px-[8.8rem]">
-                    <section className="h-[18rem] lg:h-[30.2rem] rounded-[20px] mt-[1.6rem] lg:mt-[2.5rem] mb-[3.2rem] lg:mb-[6.4rem]">
+                    <section className="h-[18rem] lg:h-[25rem] rounded-[20px] mt-[1.6rem] lg:mt-[2.5rem] mb-[3.2rem] lg:mb-[3.5rem]">
                         <img src={event.eventCoverPhotos[0]} alt="Event Image" className="size-full object-cover rounded-[20px]" />
                     </section>
                     <section className="font-montserrat">
                         <section className="flex flex-col lg:flex-row gap-[2rem] lg:gap-[6.8rem]">
                             <section className="lg:w-[calc(100%-36.6rem-3.4rem)]">
-                            <p className="leading-[1.936rem] lg:leading-[2.905rem] lg:text-[2.4rem] mb-[1.2rem]">{`${eventDay} ${eventMonth} ${date}, ${year}`}</p>
-                                <h1 className="font-semibold text-[2rem] leading-[2.42rem] lg:text-[4rem] lg:leading-[4.841rem] mb-[1.2rem] lg:mb-[3.2rem]">{event.eventName}</h1>
+                            <p className="leading-[1.936rem] lg:leading-[2.905rem] lg:text-[2.4rem] mb-[1.2rem] lg:mb-[2.1rem]">{`${eventDay} ${eventMonth} ${date}, ${year}`}</p>
+                                <h1 className="font-semibold text-[2rem] leading-[2.42rem] lg:text-[4rem] lg:leading-[4.841rem] mb-[1.2rem] lg:mb-[2.2rem]">{event.eventName}</h1>
                                 <p className="lg:text-justify leading-[1.936rem] lg:leading-[2.905rem] lg:text-[2.4rem]">{event.eventDescription}</p>
                             </section>
                             <section className="lg:w-[calc(36.6rem-3.4rem)] center">
@@ -119,25 +120,25 @@ const Event = props => {
                                 </section>
                             </section>
                         </section>
-                        <section className="mt-[2.5rem] lg:mt-[5.5rem]">
+                        <section className="mt-[2.5rem] lg:mt-[4rem]">
                             <h2 className="font-semibold text-[1.8rem] leading-[2.42rem] lg:text-[3.2rem] lg:leading-[3.873rem] mb-[0.6rem] lg:mb-[2.4rem]">Event Time and Duration</h2>
                             <p className="leading-[1.936rem] lg:leading-[2.905rem] lg:text-[2.4rem]">{`Event starts by ${event.eventTime} prompt and will last for ${event.duration}.`}</p>
                         </section>
-                        <section className="mt-[2.5rem] lg:mt-[5.5rem]">
+                        <section className="mt-[2.5rem] lg:mt-[4rem]">
                             <h2 className="font-semibold text-[1.8rem] leading-[2.42rem] lg:text-[3.2rem] lg:leading-[3.873rem] mb-[0.6rem] lg:mb-[2.4rem]">Location</h2>
                             <p className="leading-[1.936rem] lg:leading-[2.905rem] lg:text-[2.4rem]">{event.eventLocation}.</p>
                         </section>
-                        <section className="mt-[2.5rem] lg:mt-[5.5rem]">
+                        <section className="mt-[2.5rem] lg:mt-[4rem]">
                             <h2 className="font-semibold text-[1.8rem] leading-[2.42rem] lg:text-[3.2rem] lg:leading-[3.873rem] mb-[0.6rem] lg:mb-[2.4rem]">Refund Policy</h2>
                             <p className="leading-[1.936rem] lg:leading-[2.905rem] lg:text-[2.4rem]">{event.refundPolicy}.</p>
                         </section>
-                        <section className="mt-[2.5rem] lg:mt-[5.5rem]">
+                        <section className="mt-[2.5rem] lg:mt-[4rem]">
                             <h2 className="font-semibold text-[1.8rem] leading-[2.42rem] lg:text-[3.2rem] lg:leading-[3.873rem] mb-[0.6rem] lg:mb-[2.4rem]">About this Event</h2>
-                            <p className="leading-[1.936rem] lg:leading-[2.905rem] lg:text-[2.4rem]">{event.eventDescription}.</p>
+                            <p className="leading-[1.936rem] lg:leading-[2.905rem] lg:text-[2.4rem]">{event.aboutEvent}.</p>
                         </section>
                     </section>
                 </div>
-                <section className="mt-[2.5rem] lg:mt-[5.5rem] font-montserrat">
+                <section className="mt-[2.5rem] lg:mt-[4rem] font-montserrat">
                     <section className="px-[1.6rem] lg:px-[8.8rem]">
                         <h2 className="font-semibold text-[1.8rem] leading-[2.42rem] lg:text-[3.2rem] lg:leading-[3.873rem] mb-[0.6rem] lg:mb-[2.4rem]">Organizer</h2>
                     </section>
@@ -147,10 +148,10 @@ const Event = props => {
                                     <section className="size-[5rem] lg:size-[8rem] rounded-[12px] mr-[1rem] lg:mr-[2rem]">
                                         <img src={event.eventCoverPhotos} alt="Organizer's Photo" className="size-full object-cover rounded-[12px]" />
                                     </section>
-                                    <section className="leading-[1.936rem] lg:leading-[2.905rem] lg:text-[2rem] font-medium">TicketDorm</section>
+                                    <section className="leading-[1.936rem] lg:leading-[2.905rem] lg:text-[2rem] font-medium">{event.firstname}</section>
                                 </section>
                                 <section className="w-[25%] lg:flex justify-end">
-                                    <Link><button className="bg-[#2777CD] text-white center w-full lg:w-[13rem] leading-[1.694rem] lg:leading-[2.905rem] rounded-[10px] p-[1rem] text-[1.4rem] lg:text-[1.9rem]">Contact</button></Link>
+                                    <Link to={`tel:${event.phoneNumber}`}><button className="bg-[#2777CD] text-white center w-full lg:w-[13rem] leading-[1.694rem] lg:leading-[2.905rem] rounded-[10px] p-[1rem] text-[1.4rem] lg:text-[1.9rem]">Contact</button></Link>
                                 </section>
                         </section>
                     </section>

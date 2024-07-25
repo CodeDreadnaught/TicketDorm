@@ -113,4 +113,23 @@ const buyTicket = async (userInfo, userID) => {
     }
 };
 
-export { createAccount, signIn, fetchAllEvents, verifyOTPRequest, forgetPasswordRequest, resetPasswordRequest, buyTicket };
+const createEventRequest = async userInfo => {
+    try {
+        const response = await fetch(`${apiUrl}/event/create/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userInfo)
+            }),
+            data = await response.json();
+
+            console.log(data);
+
+            return data;
+    } catch(error) {
+        throw Error("CodeDreadnaught, TicketDorm is unable to initiate an event creation.");
+    }
+};
+
+export { createAccount, signIn, fetchAllEvents, verifyOTPRequest, forgetPasswordRequest, resetPasswordRequest, buyTicket, createEventRequest };

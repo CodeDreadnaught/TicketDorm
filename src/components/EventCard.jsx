@@ -4,8 +4,10 @@ import AppContext from "../context/AppContext";
 
 const EventCard = props => {
     const { setShowLoadingAnimation } = useContext(AppContext);
-    // const eventDate = new Date(props.eventDate); 
-    const eventDate = new Date("08-30-2024"); 
+    
+    const [ chosenDate, chosenMonth, chosenYear] = props.eventDate.split("-").reverse(),
+    chosenEventDate = `${chosenMonth}-${chosenDate}-${chosenYear}`,
+    eventDate = new Date(chosenEventDate);
 
     const day = eventDate.getDay(),
     date = eventDate.getDate(),
@@ -88,7 +90,7 @@ const EventCard = props => {
                     <p className="text-[#1B67BB] text-[1.2rem] leading-[1.452rem] lg:text-[1.6rem] lg:leading-[1.936rem] mt-[0.4rem] lg:mt-[1.2rem]">
                         {`${eventDay} ${eventMonth} ${date}, ${year}`}
                         <span className="hidden lg:inline"> ●</span> {props.eventTime} GMT +1</p>
-                    <p className="my-[0.4rem] lg:my-[0.8rem] text-[1.3rem] leading-[1.573rem] lg:text-[1.6rem] lg:leading-[1.936rem]">{(typeof props.ticketPrice) === "number" ? "Price ●" : ""} {(typeof props.ticketPrice) === "number" ? "₦" : ""}{props.ticketPrice}</p>
+                    <p className="my-[0.4rem] lg:my-[0.8rem] text-[1.3rem] leading-[1.573rem] lg:text-[1.6rem] lg:leading-[1.936rem]">{props.ticketPrice === 0 ? "Free" : <span>Price ● ₦{props.ticketPrice}</span>}</p>
                     <p className="text-[1.3rem] leading-[1.573rem] lg:text-[1.6rem] lg:leading-[1.936rem] max-w-full overflow-hidden whitespace-nowrap text-ellipsis">{props.eventLocation}</p>
                 </section>
             </section>

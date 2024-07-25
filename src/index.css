@@ -89,6 +89,13 @@
   .event-card-wrapper::-webkit-scrollbar {
     @apply hidden
   }
+  .preview-about-section {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -ms-line-clamp: 2;
+  }
 }
 
 @layer utilities {

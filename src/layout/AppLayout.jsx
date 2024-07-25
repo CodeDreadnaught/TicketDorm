@@ -38,11 +38,11 @@ const AppLayout = () => {
                 setVerificationEmail, hasOTP, setHasOTP, currentEvent, setCurrentEvent, verifyPayment, setVerifyPayment
                 }}>
                 <EnsurePageLoadsFromTop>
-                <Alert />
-                <LoadingAnimation />
-                <Header />
-                <Outlet />
-                <Footer />
+                    <Alert />
+                    <LoadingAnimation />
+                    <Header />
+                    <Outlet />
+                    <Footer />
                 </EnsurePageLoadsFromTop>
             </AppContext.Provider>
         </div>
