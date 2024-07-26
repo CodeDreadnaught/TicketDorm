@@ -156,7 +156,7 @@ const Event = props => {
                         </section>
                     </section>
                 </section>
-                <MoreEvents eventId={event._id} eventType={event.eventCategory} />
+                <MoreEvents eventId={event._id} eventType={event.eventCategory} eventName={event.eventName} />
             </main>
         </HelmetProvider>
     );

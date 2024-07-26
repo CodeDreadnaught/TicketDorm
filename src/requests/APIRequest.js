@@ -124,8 +124,6 @@ const createEventRequest = async (userInfo, token) => {
             }),
             data = await response.json();
 
-            console.log(data);
-
             return data;
     } catch(error) {
         throw Error("CodeDreadnaught, TicketDorm is unable to initiate an event creation.");
