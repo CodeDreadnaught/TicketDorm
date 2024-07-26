@@ -14,7 +14,6 @@
   html {
     font-size: 62.5%;
     scroll-behavior: smooth;
-    height: -webkit-fill-available;
   }
   :root {
     --primary-purple: #CB00E3;
@@ -22,7 +21,6 @@
   }
   body {
     font-size: 1.6rem;
-    height: -webkit-fill-available;
   }
   body::-webkit-scrollbar {
     display: none;

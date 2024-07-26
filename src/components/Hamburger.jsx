@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
@@ -15,14 +15,6 @@ const Hamburger = () => {
     const toggleMenu = () => {
         setShowMobileNavigation(prevState => !prevState);
     };
-
-    useEffect(() => {
-        if (showMobileNavigation) {
-            document.body.classList.add("prevent-scrolling");
-        } else {
-            document.body.classList.remove("prevent-scrolling");
-        }
-    }, [showMobileNavigation]);
 
     return (
         <section className={`hamburger-icon w-[3rem] h-[3rem] py-[0.781rem] px-[0.281rem] flex flex-col justify-between lg:hidden ${hamburgerState} font-inter leading-[1.936rem]`}>
