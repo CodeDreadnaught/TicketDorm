@@ -21,7 +21,7 @@ const Hamburger = () => {
             <section className="h-[0.188rem] bg-white rounded-[5px] gen-transistion" onClick={toggleMenu}></section>
             <section className="h-[0.188rem] bg-white rounded-[5px] gen-transistion" onClick={toggleMenu}></section>
             <section className="h-[0.188rem] bg-white rounded-[5px] gen-transistion" onClick={toggleMenu}></section>
-            <section className="mobile-navigation-menu fixed top-[5rem] left-[-150vw] w-full bg-white text-black p-[1.6rem] h-[calc(100vh-5rem)] flex flex-col justify-between gen-transistion">
+            <section className="mobile-navigation-menu fixed top-[5rem] left-[-150vw] w-full bg-white text-black p-[1.6rem] h-[calc(100dvh-5rem)] flex flex-col justify-between gen-transistion">
                 <ul>
                     <li className="h-[4rem] center"><NavLink to="/" className={activeLinkStyle} onClick={() => setShowMobileNavigation(false)}>Home</NavLink></li>
                     <li className="h-[4rem] center"><NavLink to="/find-events" className={activeLinkStyle} onClick={() => setShowMobileNavigation(false)}>Find Events</NavLink></li>
