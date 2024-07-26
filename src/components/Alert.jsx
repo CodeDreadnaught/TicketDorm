@@ -20,7 +20,7 @@ const Alert = () => {
             }, 2500);
         }
 
-        return () => document.body.classList.add("prevent-scrolling");
+        return () => document.body.classList.remove("prevent-scrolling");
     }, [showModal.on]);
 
     return (
