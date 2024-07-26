@@ -113,14 +113,14 @@ const buyTicket = async (userInfo, userID) => {
     }
 };
 
-const createEventRequest = async userInfo => {
+const createEventRequest = async (userInfo, token) => {
     try {
         const response = await fetch(`${apiUrl}/event/create/`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                Authorization: `Bearer ${token}`,
             },
-            body: JSON.stringify(userInfo)
+            body: userInfo
             }),
             data = await response.json();
 

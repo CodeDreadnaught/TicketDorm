@@ -30,6 +30,12 @@ const CheckoutForm = props => {
                 setVerifyPayment(true);
                 localStorage.setItem("verifyPayment", JSON.stringify(true));
                 window.location.href = data.authorization_url;
+
+                setFormData({
+                    buyer: "",
+                    email: "",
+                    phoneNumber: ""
+                });
             } else {
                 setShowModal({
                     heading: "Initialization Failed",
@@ -61,7 +67,7 @@ const CheckoutForm = props => {
             <label htmlFor="eventName">Event Name</label>
             <input className="w-full h-[4rem] mt-[0.3rem] mb-[0.8rem] gen-transistion border-b-2 border-[rgba(149,99,255,0.4)] focus:border-[rgba(149,99,255,1)]" type="text" value={props.event.eventName} readOnly />
             <label htmlFor="eventDate">Event Date</label>
-            <input className="w-full h-[4rem] mt-[0.3rem] mb-[0.8rem] gen-transistion border-b-2 border-[rgba(149,99,255,0.4)] focus:border-[rgba(149,99,255,1)]" type="text" value={props.event.eventName} readOnly />
+            <input className="w-full h-[4rem] mt-[0.3rem] mb-[0.8rem] gen-transistion border-b-2 border-[rgba(149,99,255,0.4)] focus:border-[rgba(149,99,255,1)]" type="text" value={props.event.eventDate} readOnly />
             <label htmlFor="time">Time</label>
             <input className="w-full h-[4rem] mt-[0.3rem] gen-transistion border-b-2 border-[rgba(149,99,255,0.4)] focus:border-[rgba(149,99,255,1)]" type="text" value={props.event.eventTime} readOnly />
             <button className="font-semibold h-[4rem] rounded-[10px] w-full mt-[1.5rem] lg:mt-[2rem] lg:w-[25%] text-white bg-[#9563FF]">Pay</button>

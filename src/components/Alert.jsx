@@ -14,6 +14,12 @@ const Alert = () => {
             document.body.classList.remove("prevent-scrolling");
         }
 
+        if (showModal.success) {
+            setTimeout(() => {
+                setShowModal({heading: "", message: "", on: false});
+            }, 2500);
+        }
+
         return () => document.body.classList.add("prevent-scrolling");
     }, [showModal.on]);
 
@@ -24,7 +30,7 @@ const Alert = () => {
                     <div className="min-h-[17.2rem] relative text-center center">
                         <h1 className="text-[2.15rem] font-semibold mb-[1rem] leading-[41px]">{showModal.heading}</h1>
                         <p className="mb-[1.5rem]">{showModal.message}</p>
-                        <section className="absolute right-0 top-0 cursor-pointer"><span className={`size-[3rem] rounded-[50%] font-montserrat text-[2rem] center ${cancelBg}`} onClick={() => setShowModal({heading: "", message: "", on: false})}>X</span></section>
+                        {!showModal.success && <section className="absolute right-0 top-0 cursor-pointer"><span className={`size-[3rem] rounded-[50%] font-montserrat text-[2rem] center ${cancelBg}`} onClick={() => setShowModal({heading: "", message: "", on: false})}>X</span></section>}
                     </div>
                 </div>
             </div>

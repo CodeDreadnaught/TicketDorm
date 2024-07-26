@@ -1,11 +1,13 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import AppContext from "../context/AppContext";
 import ArrowLeft from "../assets/icons/caret-left-arrow.svg";
 import { createEventRequest } from "../requests/APIRequest";
 
 const CreateEvent = () => {
-    const { setShowModal, setShowLoadingAnimation } = useContext(AppContext);
+    const { token, setShowModal, setShowLoadingAnimation } = useContext(AppContext),
+    navigate = useNavigate();
 
     let formTitle, formProgress, pageOneDisplayState, pageTwoDisplayState, pageThreeDisplayState, continueButtonDisplayState, submitButtonDisplayState;
     const [ currentFormPage, setCurrentFormPage ] = useState(1),
@@ -97,20 +99,20 @@ const CreateEvent = () => {
         break;
     }
 
+    const imageInfoHandler = event => {
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            eventCoverPhotos: [event.target.files[0]]
+        }));
+    };
+
     const changeHandler = event => {
         const { name, value } = event.target;
 
-        if (name === "eventCoverPhotos") {
-            setFormData(prevFormData => ({
-                ...prevFormData,
-                eventCoverPhotos: [URL.createObjectURL(event.target.files[0])]
-                }));    
-        } else {
-            setFormData(prevFormData => ({
+        setFormData(prevFormData => ({
             ...prevFormData,
             [name]: value
             }));
-        }
     }; 
 
         switch(currentFormPage) {
@@ -164,22 +166,58 @@ const CreateEvent = () => {
     const submitFormHandler = event => {
         event.preventDefault();
         setShowLoadingAnimation(true);
+        
+        const newFormData = new FormData();
+        Object.keys(formData).forEach(key => {
+            const value = formData[key];
+            
+            if (Array.isArray(value)) {
+                value.forEach(item => {
+                    if (item instanceof File) {
+                        newFormData.append(key, item);
+                    } else {
+                        newFormData.append(key, item);
+                    }
+                });
+            } else {
+                newFormData.append(key, value);
+            }
+        });
 
-        createEventRequest(formData)
+        createEventRequest(newFormData, token)
         .then(data => {
             setShowLoadingAnimation(false);
-            // if (data.success) {
-            //     setVerifyPayment(true);
-            //     localStorage.setItem("verifyPayment", JSON.stringify(true));
-            //     window.location.href = data.authorization_url;
-            // } else {
-            //     setShowModal({
-            //         heading: "Initialization Failed",
-            //         message: "There was an error with initializing your ticket purchase, please try again.",
-            //         on: true,
-            //         success: false
-            //     });
-            // }
+            if (data.message === "Event created successfully") {
+                setShowModal({
+                    heading: "Event Created",
+                    message: `${data.data.newEvent.eventName} has been successfully added to our array of events, well-done ${data.data.newEvent.postedBy.firstname}`,
+                    on: true,
+                    success: true
+                });
+
+                navigate("/find-events");
+
+                setFormData({
+                    eventCategory: "Concert",
+                    eventName: "",
+                    eventDescription: "",
+                    eventDate: "",
+                    eventTime: "",
+                    duration: "",
+                    eventCoverPhotos: [],
+                    eventLocation: "",
+                    ticketPrice: "",
+                    eventCapacity: "",
+                    aboutEvent: ""
+                });
+            } else {
+                setShowModal({
+                    heading: "Error",
+                    message: "We encountered a problem with creating your event, please try again.",
+                    on: true,
+                    success: false
+                });
+            }
         })
         .catch(error => {
             setShowLoadingAnimation(false);
@@ -218,9 +256,9 @@ const CreateEvent = () => {
                                     <option value="Comedy">Comedy</option>
                                     <option value="Concert">Concert</option>
                                     <option value="Health & Wellbeing">Health & Wellbeing</option>
-                                    <option value="Food & Drinks">Food & Drinks</option>
+                                    <option value="Food & drinks">Food & Drinks</option>
                                     <option value="Nightlife">NightLife</option>
-                                    <option value="Sport & Fitness">Sport & Fitness</option>
+                                    <option value="Sports & Fitness">Sport & Fitness</option>
                                     <option value="Religion">Religion</option>
                                     <option value="Others">Others</option>
                                 </select>
@@ -235,7 +273,7 @@ const CreateEvent = () => {
                                     <input type="text" name="duration" className="w-[30%] border border-black rounded-[5px] indent-[0.5rem] focus:border-[#0E4887] bg-transparent" placeholder="Duration" value={formData.duration} onChange={changeHandler} required />
                                 </section>
                                 <label htmlFor="eventCoverPhotos" className="block font-medium mb-[0.1rem]">Upload a cover photo for your event <span className="text-[red]">*</span></label>
-                                <input type="file" accept="image/*" name="eventCoverPhotos"className="bg-transparent mb-[0.8rem] w-full" onChange={changeHandler} required />
+                                <input type="file" accept="image/*" name="eventCoverPhotos"className="bg-transparent mb-[0.8rem] w-full" onChange={imageInfoHandler} required />
                                 <label htmlFor="eventLocation" className="block font-medium mb-[0.1rem]">Location <span className="text-[red]">*</span></label>
                                 <input type="text" name="eventLocation" className="border border-black rounded-[5px] indent-[0.5rem] focus:border-[#0E4887] h-[3.5rem] w-full bg-transparent" value={formData.eventLocation} onChange={changeHandler} required />
                             </section>
@@ -249,7 +287,7 @@ const CreateEvent = () => {
                             </section>
                             <section className={`${pageThreeDisplayState} gen-transistion`}>
                                 <section className={`${formData.eventCoverPhotos[0] ? "h-[10rem] lg:h-[8rem]" : ""} rounded-[10px] mb-[1.5rem]`}>
-                                    {formData.eventCoverPhotos[0] ? <img src={formData.eventCoverPhotos[0]} alt="Event Image" className="size-full object-cover rounded-[10px]" /> : <p className="font-medium text-[red]">You are yet to upload a cover photo for your event.</p>}
+                                    {formData.eventCoverPhotos[0] ? <img src={URL.createObjectURL(formData.eventCoverPhotos[0])} alt="Event Image" className="size-full object-cover rounded-[10px]" /> : <p className="font-medium text-[red]">You are yet to upload a cover photo for your event.</p>}
                                 </section>
                                 <section>{formData.eventDate ? `${eventDay} ${eventMonth} ${date}, ${year}` : <p className="font-medium text-[red]">You are yet to choose a date for your event.</p>}</section>
                                 <section className="my-[0.3rem]">{formData.eventName ? <h2 className="font-semibold text-[1.9rem]">{formData.eventName}</h2> : <p className="font-medium text-[red]">You are yet to choose a name for your event.</p>}</section>

@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import AppContext from "../context/AppContext";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import AdditionalActionsAccountWrapper from "../components/AdditionalActionsAccountWrapper";
 import PhoneIcon from "../assets/icons/phone-icon.svg";
@@ -9,8 +9,6 @@ import OTPRegulator from "../utilis/OTPRegulator";
 import { verifyOTPRequest } from "../requests/APIRequest";
 
 const VerifyOTP = () => {
-    const navigate = useNavigate();
-
     const {  setUser, setToken, verificationEmail, setShowLoadingAnimation, setShowModal } = useContext(AppContext);
 
     const [formData, setFormData] = useState({
@@ -57,8 +55,8 @@ const VerifyOTP = () => {
                         on: true,
                         success: true
                     });
-
-                    navigate("/");
+                    
+                    <Navigate to="/" />;
 
                     setFormData({
                         firstInput: "",

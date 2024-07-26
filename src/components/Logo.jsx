@@ -6,7 +6,7 @@ const Logo = props => {
     return (
         <section>
             <Link to="/">
-            <section className="w-[9.582rem] h-[3.4rem] lg:w-[15.5rem] lg:h-[5.5rem]">
+            <section className="w-[7rem] h-[3rem] lg:w-[13.5rem] lg:h-full">
                 <img src={props.header ? HeaderLogo : FooterLogo} alt="TicketDorm Logo" className="size-full" />
             </section>
             </Link>

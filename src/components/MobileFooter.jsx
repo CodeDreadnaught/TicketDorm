@@ -11,8 +11,8 @@ const MobileFooter = props => {
            </section> 
            <section>
             <h3>Contact</h3>
-            <p>+234 (0) 867-1663-419</p>
-            <p>support@ticketdorm.com</p>
+            <p><Link to="tel:09068359777">+234 (0) 906-835-9777</Link></p>
+            <p><Link to="mailto:support@ticketdorm.com">support@ticketdorm.com</Link></p>
            </section>
            <section className="my-[1.6rem]">
             <h3>Follow Us</h3>
