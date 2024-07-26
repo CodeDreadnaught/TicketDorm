@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
 
@@ -47,13 +47,13 @@ const Hamburger = () => {
                 <section>
                     {token ? <p className="text-center">CDNLKM</p> :
                         <ul className="flex justify-between items-center">
-                        <li className="h-[4.2rem] w-[15rem] center rounded-[5px] border border-primaryPurple"><NavLink to="/sign-in" className="h-full center" onClick={() => {
+                        <li className="h-[4.2rem] w-[15rem] center rounded-[5px] border border-primaryPurple"><Link to="/sign-in" className="h-full center" onClick={() => {
                                 setShowMobileNavigation(false);
-                            }}><button className="p-[1rem]">Sign In</button></NavLink>
+                            }}><button className="p-[1rem]">Sign In</button></Link>
                         </li>
-                        <li className="h-[4.2rem] w-[15rem] center rounded-[5px] bg-primaryPurple text-white"><NavLink to="/sign-up" onClick={() => {
+                        <li className="h-[4.2rem] w-[15rem] center rounded-[5px] bg-primaryPurple text-white"><Link to="/sign-up" onClick={() => {
                                 setShowMobileNavigation(false);
-                                }}><button className="p-[1rem]">Sign Up</button></NavLink>
+                                }}><button className="p-[1rem]">Sign Up</button></Link>
                         </li>
                     </ul>
                     }
