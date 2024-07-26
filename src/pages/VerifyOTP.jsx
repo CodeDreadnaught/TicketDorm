@@ -1,6 +1,5 @@
 import { useState, useContext, useEffect } from "react";
 import AppContext from "../context/AppContext";
-import { Navigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import AdditionalActionsAccountWrapper from "../components/AdditionalActionsAccountWrapper";
 import PhoneIcon from "../assets/icons/phone-icon.svg";
@@ -56,7 +55,7 @@ const VerifyOTP = () => {
                         success: true
                     });
                     
-                    <Navigate to="/" />;
+                    window.location.href = "/";
 
                     setFormData({
                         firstInput: "",
