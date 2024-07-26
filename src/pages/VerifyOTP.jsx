@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import AppContext from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import AdditionalActionsAccountWrapper from "../components/AdditionalActionsAccountWrapper";
 import PhoneIcon from "../assets/icons/phone-icon.svg";
@@ -8,7 +9,8 @@ import OTPRegulator from "../utilis/OTPRegulator";
 import { verifyOTPRequest } from "../requests/APIRequest";
 
 const VerifyOTP = () => {
-    const {  setUser, setToken, verificationEmail, setShowLoadingAnimation, setShowModal } = useContext(AppContext);
+    const {  setUser, setToken, verificationEmail, setShowLoadingAnimation, setShowModal } = useContext(AppContext),
+    navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         firstInput: "",
@@ -38,12 +40,12 @@ const VerifyOTP = () => {
             email: verificationEmail,
             otp: OTPValue
         };
-
+        
         verifyOTPRequest(formDataObject)
         .then(data => {
             setShowLoadingAnimation(false);
             switch (data.message) {
-                case "OTP verified successfully" :
+                case "OTP verified successfully." :
                     setUser(data.user);
                     setToken(data.accessToken);
                     localStorage.setItem("site", data.accessToken);
@@ -55,7 +57,7 @@ const VerifyOTP = () => {
                         success: true
                     });
                     
-                    window.location.href = "/";
+                    navigate("/");
 
                     setFormData({
                         firstInput: "",
@@ -63,8 +65,17 @@ const VerifyOTP = () => {
                         thirdInput: "",
                         fourthInput: ""
                     });
-
                 break;
+                case "Invalid or expired OTP" :
+                    setShowModal({
+                        heading: "Verification Error",
+                        message: "The OTP you entered is either invalid or has expired.",
+                        on: true,
+                        success: false
+                    });
+                break;
+            }
+            switch (data.messaage) {
                 case "Invalid or expired OTP" :
                     setShowModal({
                         heading: "Verification Error",
@@ -89,7 +100,7 @@ const VerifyOTP = () => {
     return (
         <HelmetProvider>
             <Helmet>
-                <meta name="description" content="TicketDorm, verify your OTP to connect with the best concerts, sports games, theater performances and festivals." />
+                <meta name="description" property="og:description" content="TicketDorm, verify your OTP to connect with the best concerts, sports games, theater performances and festivals." />
                 <title>Verify OTP | TicketDorm</title>
                 </Helmet>
             <main>

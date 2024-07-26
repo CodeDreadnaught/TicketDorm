@@ -5,7 +5,7 @@ const ViewAllCategoryEvents = props => {
     return (
         <HelmetProvider>
             <Helmet>
-            <meta name="description" content="TicketDorm, find tickets to your favorite concerts, sports games and theater shows with ease and confidence." />
+            <meta name="description" property="og:description" content="TicketDorm, find tickets to your favorite concerts, sports games and theater shows with ease and confidence." />
             <title>View Events | TicketDorm</title>
             </Helmet>
             <main>

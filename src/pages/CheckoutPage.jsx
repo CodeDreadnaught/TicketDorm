@@ -16,7 +16,7 @@ const CheckoutPage = () => {
     return (
         <HelmetProvider>
             <Helmet>
-                <meta name="description" content="TicketDorm, we connect you with the best concerts, sports games, theater performances and festivals. Our mission is to make discovering, buying, and selling tickets easy and secure." />
+                <meta name="description" property="og:description" content="TicketDorm, we connect you with the best concerts, sports games, theater performances and festivals. Our mission is to make discovering, buying, and selling tickets easy and secure." />
                 <title>{`${currentEvent.eventName} Checkout | TicketDorm`}</title>
                 </Helmet>
             <main>

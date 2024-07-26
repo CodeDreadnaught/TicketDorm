@@ -55,7 +55,7 @@ const verifyOTPRequest = async userInfo => {
             body: JSON.stringify(userInfo)
             }),
             data = await response.json();
-
+            console.log(data);
             return data;
     } catch(error) {
         throw Error("CodeDreadnaught, TicketDorm is unable to verify this OTP.");

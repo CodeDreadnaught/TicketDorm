@@ -37,12 +37,11 @@ const App = () => {
         <Route path="/check-email" element={<CheckEmail />} />
         <Route path="/reset-password/:id" element={<ResetPassword />}  />
         <Route path="/checkout-page/:id" element={<CheckoutPage />} loader={currentEventLoader} errorElement={<TriggerAlert />} />
-        <Route path="/sell-tickets" element={<CreateEvent />} />
         <Route element={<ProtectedRoutes />}>
 
         </Route>
         <Route element={<ProtectedTokenRoutes />}>
-
+        <Route path="/sell-tickets" element={<CreateEvent />} />
         </Route>
         <Route element={<ProtectedPaymentRoute />}>
         <Route path="/verify-payment/:callback-reference" element={<VerifyTicketPayment />}  />
