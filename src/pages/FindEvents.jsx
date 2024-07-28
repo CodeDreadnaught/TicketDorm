@@ -23,7 +23,8 @@ const FindEvents = () => {
     return (
         <HelmetProvider>
             <Helmet>
-                <meta name="description" property="og:description" content="TicketDorm, explore a world of exciting events – from electrifying concerts and thrilling sports games to captivating theater performances and vibrant festivals." />
+                <meta name="description" content="TicketDorm, explore a world of exciting events – from electrifying concerts and thrilling sports games to captivating theater performances and vibrant festivals." />
+                <meta property="og:description" content="TicketDorm, explore a world of exciting events – from electrifying concerts and thrilling sports games to captivating theater performances and vibrant festivals." />
                 <title>Find Events | TicketDorm</title>
                 </Helmet>
             <main>

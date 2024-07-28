@@ -71,7 +71,8 @@ const ForgotPassword = () => {
     return (
         <HelmetProvider>
             <Helmet>
-                <meta name="description" property="og:description" content="TicketDorm, reset your password to connect with the best concerts, sports games, theater performances and festivals." />
+                <meta name="description" content="TicketDorm, reset your password to connect with the best concerts, sports games, theater performances and festivals." />
+                <meta property="og:description" content="TicketDorm, reset your password to connect with the best concerts, sports games, theater performances and festivals." />
                 <title>Forgot Password | TicketDorm</title>
                 </Helmet>
             <main>

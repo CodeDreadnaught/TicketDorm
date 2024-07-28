@@ -100,7 +100,8 @@ const VerifyOTP = () => {
     return (
         <HelmetProvider>
             <Helmet>
-                <meta name="description" property="og:description" content="TicketDorm, verify your OTP to connect with the best concerts, sports games, theater performances and festivals." />
+                <meta name="description" content="TicketDorm, verify your OTP to connect with the best concerts, sports games, theater performances and festivals." />
+                <meta property="og:description" content="TicketDorm, verify your OTP to connect with the best concerts, sports games, theater performances and festivals." />
                 <title>Verify OTP | TicketDorm</title>
                 </Helmet>
             <main>

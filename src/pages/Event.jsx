@@ -96,8 +96,11 @@ const Event = props => {
     return (
         <HelmetProvider>
             <Helmet>
-            <meta name="description" property="og:description" content={`${(event.eventDescription).slice(0, 160)}`} />
-            <meta name="image" property="og:image" content={event.eventCoverPhotos[0]} />
+            <meta name="description" content={`${(event.eventDescription).slice(0, 160)}`} />
+            <meta property="og:description" content={`${(event.eventDescription).slice(0, 160)}`} />
+            <meta name="image" content={event.eventCoverPhotos[0]} />
+            <meta property="og:image" content={event.eventCoverPhotos[0]} />
+            <meta property="twitter:image" content={event.eventCoverPhotos[0]} />
             <title>{`${event.eventName} | TicketDorm`}</title>
             </Helmet>
             <main>

@@ -99,7 +99,8 @@ const SignIn = () => {
     return (
         <HelmetProvider>
             <Helmet>
-                <meta name="description" property="og:description" content="TicketDorm, sign in to your account and experience a universe of exciting events – from electrifying concerts and thrilling sports games to captivating theater performances and vibrant festivals." />
+                <meta name="description" content="TicketDorm, sign in to your account and experience a universe of exciting events – from electrifying concerts and thrilling sports games to captivating theater performances and vibrant festivals." />
+                <meta property="og:description" content="TicketDorm, sign in to your account and experience a universe of exciting events – from electrifying concerts and thrilling sports games to captivating theater performances and vibrant festivals." />
                 <title>SignIn | TicketDorm</title>
                 </Helmet>
             <main>
