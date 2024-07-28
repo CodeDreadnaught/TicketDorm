@@ -3,7 +3,7 @@ import AppContext from "../context/AppContext";
 import { buyTicket } from "../requests/APIRequest";
 
 const CheckoutForm = props => {
-    const { setShowModal, setShowLoadingAnimation, setVerifyPayment } = useContext(AppContext),
+    const { setShowModal, setShowLoadingAnimation, setVerifyPayment, setEventID, setTicketID } = useContext(AppContext),
     [ formData, setFormData ] = useState({
         buyer: "",
         email: "",
@@ -28,6 +28,10 @@ const CheckoutForm = props => {
             setShowLoadingAnimation(false);
             if (data.success) {
                 setVerifyPayment(true);
+                localStorage.setItem("eventID", data.success.eventId);
+                setEventID(data.success.eventId);
+                localStorage.setItem("ticketID", data.success._id);
+                setTicketID(data.success._id);
                 localStorage.setItem("verifyPayment", JSON.stringify(true));
                 window.location.href = data.authorization_url;
 

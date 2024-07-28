@@ -16,6 +16,8 @@ const AppLayout = () => {
     [ allEvents, setAllEvents ] = useState([]),
     [ currentEvent, setCurrentEvent ] = useState(""),
     [ verifyPayment, setVerifyPayment ] = useState(localStorage.getItem("verifyPayment") || null),
+    [ eventID, setEventID ] = useState(localStorage.getItem("eventID") || null),
+    [ ticketID, setTicketID ] = useState(localStorage.getItem("ticketID") || null),
     [ eventCategory, setEventCategory ] = useState(""),
     [ showLoadingAnimation, setShowLoadingAnimation ] = useState(false),
     [ showModal, setShowModal ] = useState({
@@ -35,7 +37,8 @@ const AppLayout = () => {
             <AppContext.Provider value={{ 
                 user, setUser, token, setToken, allEvents, setAllEvents, eventCategory, setEventCategory, 
                 showLoadingAnimation, setShowLoadingAnimation, showModal, setShowModal, verificationEmail, 
-                setVerificationEmail, hasOTP, setHasOTP, currentEvent, setCurrentEvent, verifyPayment, setVerifyPayment
+                setVerificationEmail, hasOTP, setHasOTP, currentEvent, setCurrentEvent, verifyPayment, setVerifyPayment,
+                eventID, setEventID, ticketID, setTicketID
                 }}>
                 <EnsurePageLoadsFromTop>
                     <Alert />

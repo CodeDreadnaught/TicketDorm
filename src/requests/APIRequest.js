@@ -130,4 +130,17 @@ const createEventRequest = async (userInfo, token) => {
     }
 };
 
-export { createAccount, signIn, fetchAllEvents, verifyOTPRequest, forgetPasswordRequest, resetPasswordRequest, buyTicket, createEventRequest };
+const sendTicketEmail = async (eventID, ticketID, transactionID) => {
+    try {
+        const response = await fetch(`${apiUrl}/ticket/verify-payment/event/${eventID}/ticket/${ticketID}/callback?${transactionID}/`),
+        data = await response.json();
+            
+         return data;
+    } catch(error) {
+        throw Error("CodeDreadnaught, TicketDorm is unable to send ticket email from the server.");
+    }
+};
+
+export { createAccount, signIn, fetchAllEvents, verifyOTPRequest, forgetPasswordRequest, 
+resetPasswordRequest, buyTicket, createEventRequest, sendTicketEmail 
+};

@@ -1,11 +1,17 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import AppContext from "../context/AppContext";
 import { Link } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { FaCheck } from "react-icons/fa6";
+import { sendTicketEmail } from "../requests/APIRequest";
 
 const VerifyTicketPayment = () => {
-    const { setVerifyPayment } = useContext(AppContext);
+    const { eventID, ticketID, setVerifyPayment } = useContext(AppContext);
+
+    useEffect(() => {
+        const transactionID = window.location.href.split("/").pop().slice(10);
+        sendTicketEmail(eventID, ticketID, transactionID);
+    }, []);
 
     return (
         <HelmetProvider>
