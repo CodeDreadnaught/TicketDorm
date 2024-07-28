@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import MoreEvents from "../components/MoreEvents";
 
 const Event = props => {
-    const { setShowLoadingAnimation, setCurrentEvent } = useContext(AppContext);
+    const { setShowLoadingAnimation, setCurrentEvent, setShowModal } = useContext(AppContext);
 
     const event = useLoaderData();
 
@@ -18,6 +18,18 @@ const Event = props => {
         setShowLoadingAnimation(true);
         setCurrentEvent(event);
     }
+
+    const shareEventHandler = () => {
+        const eventLink = window.location.href;
+        navigator.clipboard.writeText(eventLink);
+
+        setShowModal({
+            heading: "Event URL Copied",
+            message: `The link to ${event.eventName} has been copied to your clipboard, you can now share it with others.`,
+            on: true,
+            success: true
+        });
+    };
 
     const [ chosenDate, chosenMonth, chosenYear] = event.eventDate.split("-").reverse(),
     chosenEventDate = `${chosenMonth}-${chosenDate}-${chosenYear}`,
@@ -118,7 +130,7 @@ const Event = props => {
                             <section className="lg:w-[calc(36.6rem-3.4rem)] center">
                                 <section className="w-full lg:h-[15rem] center lg:rounded-[12px] lg:border border-gray-600 lg:px-[2.4rem]">
                                     <section className="w-full text-center">
-                                        <p className="leading-[2.42rem] lg:text-[2.4rem] lg:leading-[2.905rem] mb-[1.2rem] lg:mb-[2rem]">Attend Event</p>
+                                        <p className="leading-[2.42rem] lg:text-[2.4rem] lg:leading-[2.905rem] mb-[1.2rem] lg:mb-[2rem] cursor-pointer" onClick={shareEventHandler}>Share Event</p>
                                         <Link to={`/checkout-page/${event._id}`} onClick={clickHandler}><button className="w-full rounded-[10px] p-[1.2rem] lg:p-[1rem] text-white leading-[1.874rem] lg:leading-[2.905rem] bg-primaryPurple lg:text-[2.4rem]">Get Ticket</button></Link>
                                     </section>
                                 </section>
