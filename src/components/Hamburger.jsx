@@ -23,7 +23,7 @@ const Hamburger = () => {
             document.body.classList.remove("prevent-scrolling");
         }
 
-        return () => document.body.classList.add("prevent-scrolling");
+        return () => document.body.classList.remove("prevent-scrolling");
     }, [showMobileNavigation]);
 
     return (

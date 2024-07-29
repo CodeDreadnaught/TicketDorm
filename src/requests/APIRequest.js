@@ -96,9 +96,9 @@ const resetPasswordRequest = async (userInfo, userID) => {
     }
 };
 
-const buyTicket = async (userInfo, userID) => {
+const buyTicket = async (userInfo, eventID) => {
     try {
-        const response = await fetch(`${apiUrl}/ticket\/buyticket/${userID}/`, {
+        const response = await fetch(`${apiUrl}/ticket\/buyticket/${eventID}/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -106,10 +106,27 @@ const buyTicket = async (userInfo, userID) => {
             body: JSON.stringify(userInfo)
             }),
             data = await response.json();
-
+             
             return data;
     } catch(error) {
         throw Error("CodeDreadnaught, TicketDorm is unable to initiate ticket purchase.");
+    }
+};
+
+const buyFreeTicket = async (userInfo, eventID) => {
+    try {
+        const response = await fetch(`${apiUrl}/ticket/freeticket/${eventID}/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userInfo)
+            }),
+            data = await response.json();
+             console.log(data);
+            return data;
+    } catch(error) {
+        throw Error("CodeDreadnaught, TicketDorm is unable to initiate free ticket purchase.");
     }
 };
 
@@ -142,5 +159,5 @@ const sendTicketEmail = async (eventID, ticketID, transactionID) => {
 };
 
 export { createAccount, signIn, fetchAllEvents, verifyOTPRequest, forgetPasswordRequest, 
-resetPasswordRequest, buyTicket, createEventRequest, sendTicketEmail 
+resetPasswordRequest, buyTicket, buyFreeTicket, createEventRequest, sendTicketEmail 
 };

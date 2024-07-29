@@ -69,6 +69,14 @@
       top: 6rem;
     }
   }
+  .show-profile.active {
+    .show-profile-caret {
+      transform: rotate(180deg);
+    }
+    .help-center-menu-box {
+      top: 6rem;
+    }
+  }
   .home-hero-section {
     background: linear-gradient(90deg, rgba(203, 0, 227, 0.1) 1.01%, rgba(203, 0, 227, 0.15) 25.76%, rgba(203, 0, 227, 0.18) 50.5%, rgba(203, 0, 227, 0.19) 75.25%, rgba(203, 0, 227, 0.2) 100%), url("./assets/landing-page-images/hero-background-image.webp");
   }

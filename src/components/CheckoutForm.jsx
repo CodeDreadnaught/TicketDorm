@@ -1,9 +1,11 @@
 import { useState, useContext } from "react";
 import AppContext from "../context/AppContext";
-import { buyTicket } from "../requests/APIRequest";
+import { useNavigate } from "react-router-dom";
+import { buyTicket, buyFreeTicket } from "../requests/APIRequest";
 
 const CheckoutForm = props => {
     const { setShowModal, setShowLoadingAnimation, setVerifyPayment, setEventID, setTicketID } = useContext(AppContext),
+    navigate = useNavigate(),
     [ formData, setFormData ] = useState({
         buyer: "",
         email: "",
@@ -22,42 +24,80 @@ const CheckoutForm = props => {
     const submitHandler = event => {
         event.preventDefault();
         setShowLoadingAnimation(true);
+        
+        if (props.event.ticketPrice === 0) {
+            buyFreeTicket(formData, props.event._id)
+            .then(data => {
+                setShowLoadingAnimation(false);
+                if (data.success) {
+                    setVerifyPayment(true);
+                    localStorage.setItem("eventID", data.success.eventId);
+                    setEventID(data.success.eventId);
+                    localStorage.setItem("ticketID", data.success._id);
+                    setTicketID(data.success._id);
+                    localStorage.setItem("verifyPayment", JSON.stringify(true));
+                    navigate("/verify-payment/CDNLKM");
 
-        buyTicket(formData, props.event._id)
-        .then(data => {
-            setShowLoadingAnimation(false);
-            if (data.success) {
-                setVerifyPayment(true);
-                localStorage.setItem("eventID", data.success.eventId);
-                setEventID(data.success.eventId);
-                localStorage.setItem("ticketID", data.success._id);
-                setTicketID(data.success._id);
-                localStorage.setItem("verifyPayment", JSON.stringify(true));
-                window.location.href = data.authorization_url;
-
-                setFormData({
+                 setFormData({
                     buyer: "",
                     email: "",
                     phoneNumber: ""
                 });
-            } else {
+                } else {
+                    setShowModal({
+                        heading: "Initialization Failed",
+                        message: "There was an error with initializing your ticket purchase, please try again.",
+                        on: true,
+                        success: false
+                    });
+                }
+            })
+            .catch(error => {
+                setShowLoadingAnimation(false);
                 setShowModal({
                     heading: "Initialization Failed",
                     message: "There was an error with initializing your ticket purchase, please try again.",
                     on: true,
                     success: false
                 });
-            }
-        })
-        .catch(error => {
-            setShowLoadingAnimation(false);
-            setShowModal({
-                heading: "Initialization Failed",
-                message: "There was an error with initializing your ticket purchase, please try again.",
-                on: true,
-                success: false
             });
-        });
+        } else {
+            buyTicket(formData, props.event._id)
+            .then(data => {
+                setShowLoadingAnimation(false);
+                if (data.success) {
+                    setVerifyPayment(true);
+                    localStorage.setItem("eventID", data.success.eventId);
+                    setEventID(data.success.eventId);
+                    localStorage.setItem("ticketID", data.success._id);
+                    setTicketID(data.success._id);
+                    localStorage.setItem("verifyPayment", JSON.stringify(true));
+                    window.location.href = data.authorization_url;
+
+                 setFormData({
+                    buyer: "",
+                    email: "",
+                    phoneNumber: ""
+                });
+                } else {
+                    setShowModal({
+                        heading: "Initialization Failed",
+                        message: "There was an error with initializing your ticket purchase, please try again.",
+                        on: true,
+                        success: false
+                    });
+                }
+            })
+            .catch(error => {
+                setShowLoadingAnimation(false);
+                setShowModal({
+                    heading: "Initialization Failed",
+                    message: "There was an error with initializing your ticket purchase, please try again.",
+                    on: true,
+                    success: false
+                });
+            });
+        }
     };
 
     return (
