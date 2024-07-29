@@ -89,7 +89,7 @@ const resetPasswordRequest = async (userInfo, userID) => {
             body: JSON.stringify(userInfo)
             }),
             data = await response.json();
-            console.log(data);
+
             return data;
     } catch(error) {
         throw Error("CodeDreadnaught, TicketDorm is unable to complete a reset password request.");
