@@ -55,7 +55,7 @@ const ResetPassword = () => {
             if (data.message === "password reset successfully") {
                 setShowModal({
                     heading: "Success",
-                    message: `${data.user.firstname}, your have successfully changed your password, lets get back to creating unforgettable experiences with ease and confidence.`,
+                    message: `${data.data.user.firstname}, your have successfully changed your password, lets get back to creating unforgettable experiences with ease and confidence.`,
                     on: true,
                     success: true
                 });
@@ -74,6 +74,7 @@ const ResetPassword = () => {
         })
         .catch(error => {
             setShowLoadingAnimation(false);
+            console.log("Fuck This Shit!");
             setShowModal({
                 heading: "Network Error",
                 message: "Your internet may have been disconnected, please reconnect and try again.",
@@ -95,7 +96,7 @@ const ResetPassword = () => {
                     <section className="w-full">
                         <form className="center" onSubmit={handleSubmit(submitHandler)}>
                             <h1 className="font-semibold text-[2rem] mb-[1.5rem]">Setup New Password</h1>
-                            <section className="h-[3.5rem] lg:h-[3.4rem] bg-white rounded-[5px] w-full flex items-center gap-[0.5rem] border border-[#D9D9D9]">
+                            <section className="h-[3.5rem] lg:h-[3.4rem] bg-white rounded-[5px] w-full flex items-center gap-[0.5rem] border border-[#D9D9D9] pr-[0.5rem]">
                                 <input type={showPassword.password ? "text" : "password"} name="password" {...register("password", {
                                     min: {
                                         value: 8,
@@ -136,7 +137,7 @@ const ResetPassword = () => {
                                         </section>
                                     </section>
                                     <section className="mb-[1.3rem] lg:mb-[1rem] text-[gray] font-medium text-[1.2rem] text-center">Use 8 or more characters with a mix of letters, numbers & symbols</section>
-                                    <section className="h-[3.5rem] lg:h-[3.4rem] bg-white rounded-[5px] flex items-center gap-[0.5rem] border border-[#D9D9D9] w-full">
+                                    <section className="h-[3.5rem] lg:h-[3.4rem] bg-white rounded-[5px] flex items-center gap-[0.5rem] border border-[#D9D9D9] w-full pr-[0.5rem]">
                                         <input type={showPassword.confirmPassword ? "text" : "password"} name="confirmPassword" {...register("confirmPassword", {
                                             validate: value => {
                                                 const password = getValues().password;
