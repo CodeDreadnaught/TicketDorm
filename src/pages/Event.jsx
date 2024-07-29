@@ -32,7 +32,7 @@ const Event = props => {
     };
 
     const [ chosenDate, chosenMonth, chosenYear] = event.eventDate.split("-").reverse(),
-    chosenEventDate = `${chosenMonth}-${chosenDate}-${chosenYear}`,
+    chosenEventDate = `${chosenMonth}/${chosenDate}/${chosenYear}`,
     eventDate = new Date(chosenEventDate);
 
     const day = eventDate.getDay(),

@@ -6,7 +6,7 @@ const EventCard = props => {
     const { setShowLoadingAnimation } = useContext(AppContext);
     
     const [ chosenDate, chosenMonth, chosenYear] = props.eventDate.split("-").reverse(),
-    chosenEventDate = `${chosenMonth}-${chosenDate}-${chosenYear}`,
+    chosenEventDate = `${chosenMonth}/${chosenDate}/${chosenYear}`,
     eventDate = new Date(chosenEventDate);
 
     const day = eventDate.getDay(),
