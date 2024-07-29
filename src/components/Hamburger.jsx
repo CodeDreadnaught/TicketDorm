@@ -36,6 +36,7 @@ const Hamburger = () => {
                     <li className="h-[4rem] center"><NavLink to="/" className={activeLinkStyle} onClick={() => setShowMobileNavigation(false)}>Home</NavLink></li>
                     <li className="h-[4rem] center"><NavLink to="/find-events" className={activeLinkStyle} onClick={() => setShowMobileNavigation(false)}>Find Events</NavLink></li>
                     <li className="h-[4rem] center"><NavLink to="/sell-tickets" className={activeLinkStyle} onClick={() => setShowMobileNavigation(false)}>Sell Tickets</NavLink></li>
+                    <li className="h-[4rem] center"><NavLink to="/about-us" className={activeLinkStyle} onClick={() => setShowMobileNavigation(false)}>About Us</NavLink></li>
                     {token && <li className="h-[4rem] center"><NavLink to="/dashboard" className={activeLinkStyle} onClick={() => {
                         setShowMobileNavigation(false);
                     }}>Dashboard</NavLink></li>}  
@@ -45,7 +46,6 @@ const Hamburger = () => {
                     {token && <li className="h-[4rem] center"><NavLink to="/dashboard" className={activeLinkStyle} onClick={() => {
                         setShowMobileNavigation(false);
                     }}>Events</NavLink></li>}  
-                    <li className="h-[4rem] center"><NavLink to="/contact-us" className={activeLinkStyle} onClick={() => setShowMobileNavigation(false)}>Contact Us</NavLink></li>
                     {token && <li className="h-[4rem] center"><NavLink onClick={() => {
                         setShowMobileNavigation(false);
                         setUser(null);
@@ -55,7 +55,7 @@ const Hamburger = () => {
                     }}>Logout</NavLink></li>}
                 </ul>
                 <section>
-                    {token ? <p className="text-center">CDNLKM</p> :
+                    {token ? null :
                         <ul className="flex justify-between items-center">
                         <li className="h-[4.2rem] w-[15rem] center rounded-[5px] border border-primaryPurple"><NavLink to="/sign-in" className="h-full center" onClick={() => {
                                 setShowMobileNavigation(false);
