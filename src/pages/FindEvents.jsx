@@ -13,8 +13,6 @@ const FindEvents = () => {
 
     const { allEvents, setAllEvents } = useContext(AppContext);
 
-    console.log(allEvents);
-
     useEffect(() => {
         fetchAllEvents()
         .then(data => setAllEvents(data));

@@ -61,20 +61,12 @@
   .hamburger-icon.active .mobile-navigation-menu {
     left: 0
   }
-  .help-center.active {
-    .help-center-caret {
-      transform: rotateX(180deg)
-    }
-    .help-center-menu {
-      top: 6rem;
-    }
-  }
   .show-profile.active {
     .show-profile-caret {
       transform: rotate(180deg);
     }
-    .help-center-menu-box {
-      top: 6rem;
+    .show-profile-dropdown {
+      @apply top-[7.5rem] opacity-[1];
     }
   }
   .home-hero-section {
@@ -103,6 +95,9 @@
     line-clamp: 2;
     -webkit-line-clamp: 2;
     -ms-line-clamp: 2;
+  }
+  .searched-events::-webkit-scrollbar {
+    @apply hidden;
   }
 }
 

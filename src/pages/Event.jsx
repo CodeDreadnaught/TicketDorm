@@ -6,13 +6,14 @@ import { Link } from "react-router-dom";
 import MoreEvents from "../components/MoreEvents";
 
 const Event = props => {
-    const { setShowLoadingAnimation, setCurrentEvent, setShowModal } = useContext(AppContext);
+    const { setShowLoadingAnimation, setCurrentEvent, setShowModal, setDisplayedElement } = useContext(AppContext);
 
     const event = useLoaderData();
 
     useEffect(() => {
         setShowLoadingAnimation(false);
-    }, []);
+        setDisplayedElement(false)
+    }, [event]);
 
     const clickHandler = () => {
         setShowLoadingAnimation(true);

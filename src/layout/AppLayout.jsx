@@ -20,6 +20,8 @@ const AppLayout = () => {
     [ ticketID, setTicketID ] = useState(localStorage.getItem("ticketID") || null),
     [ eventCategory, setEventCategory ] = useState(""),
     [ showLoadingAnimation, setShowLoadingAnimation ] = useState(false),
+    [ showProfileDropdown, setShowProfileDropdown ] = useState(false),
+    [ displayedElement, setDisplayedElement ] = useState(null),
     [ showModal, setShowModal ] = useState({
         heading: "Error",
         message: "You are not authorized to perform this action",
@@ -38,7 +40,8 @@ const AppLayout = () => {
                 user, setUser, token, setToken, allEvents, setAllEvents, eventCategory, setEventCategory, 
                 showLoadingAnimation, setShowLoadingAnimation, showModal, setShowModal, verificationEmail, 
                 setVerificationEmail, hasOTP, setHasOTP, currentEvent, setCurrentEvent, verifyPayment, setVerifyPayment,
-                eventID, setEventID, ticketID, setTicketID
+                eventID, setEventID, ticketID, setTicketID, showProfileDropdown, setShowProfileDropdown, displayedElement, 
+                setDisplayedElement
                 }}>
                 <EnsurePageLoadsFromTop>
                     <Alert />
