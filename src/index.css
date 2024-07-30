@@ -47,7 +47,7 @@
 
 @layer components {
   .prevent-scrolling {
-    @apply overflow-y-hidden
+    @apply overflow-hidden
   }
   .hamburger-icon.active > section:nth-child(1) {
     transform: rotate(45deg) translateY(0.85rem);
