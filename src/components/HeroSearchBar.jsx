@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import FindEventDefaultResults from "./FindEventDefaultResults";
 import FindEventSearchResults from "./FindEventSearchResults";
 import BlackIcon from "../assets/icons/hero-search-icon-black.svg";
 
 const HeroSearchBar = props => {
-    const background = props.homepage ? "bg-[rgba(255,255,255,0.85)]" : "bg-[rgba(255,255,255,0.64)]";
+    const navigate = useNavigate(),
+    background = props.homepage ? "bg-[rgba(255,255,255,0.85)]" : "bg-[rgba(255,255,255,0.64)]";
 
     const changeHandler = event => {
         const { value } = event.target;
@@ -17,8 +19,14 @@ const HeroSearchBar = props => {
         }
     };
 
+    const clickHandler = () => {
+        if (props.homepage) {
+            navigate("/search");
+        }
+    };
+
     return (
-        <section className="h-[4rem] lg:h-[5rem] flex w-full">
+        <section className="h-[4rem] lg:h-[5rem] flex w-full" onClick={clickHandler}>
             <section className={`w-[75%] ${background} flex items-center px-[0.8rem] lg:px-[2rem]`}>
                 <span className="inline-block size-[2rem] lg:size-[2.4rem] mr-[0.8rem] lg:mr-[1.6rem]">
                     <img src={BlackIcon} alt="SearchIcon" className="size-full" />

@@ -16,6 +16,7 @@ import ResetPassword from "./pages/ResetPassword";
 import CheckoutPage from "./pages/CheckoutPage";
 import VerifyTicketPayment from "./pages/VerifyTicketPayment";
 import CreateEvent from "./pages/CreateEvent";
+import MobileSearchBar from "./components/MobileSearchBar";
 import ProtectedRoutes from "./utilis/ProtectedRoutes";
 import ProtectedTokenRoutes from "./utilis/ProtectedTokenRoutes";
 import ProtectedPaymentRoute from "./utilis/ProtectedPaymentRoute";
@@ -37,6 +38,7 @@ const App = () => {
         <Route path="/check-email" element={<CheckEmail />} />
         <Route path="/reset-password/:id" element={<ResetPassword />}  />
         <Route path="/checkout-page/:id" element={<CheckoutPage />} loader={currentEventLoader} errorElement={<TriggerAlert />} />
+        <Route path="/search" element={<MobileSearchBar />}  />
         <Route element={<ProtectedRoutes />}>
 
         </Route>
