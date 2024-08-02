@@ -18,7 +18,7 @@ const Dashboard = () => {
             </Helmet>
             <main>
                 <div className="pt-[5rem] lg:pt-[8rem] px-[1.6rem] lg:pl-0 lg:pr-[8.8rem] font-montserrat">
-                    <div className="lg:h-[calc(100dvh-8rem)] lg:flex lg:gap-[8.8rem]">
+                    <div className="lg:h-[calc(100vh-8rem)] lg:flex lg:gap-[8.8rem]">
                         <section className="w-[25.6rem] hidden lg:block bg-[#F8F9FA] pt-[4rem]">
                             <section>
                                 <ul>
@@ -29,7 +29,7 @@ const Dashboard = () => {
                                 </ul>
                             </section>
                         </section>
-                        <section className="py-[1.6rem] lg:py-[4rem] w-full min-h-[calc(100dvh-5rem)]">
+                        <section className="py-[1.6rem] lg:py-[4rem] w-full min-h-[calc(100vh-5rem)]">
                             {dashboardElement}
                         </section>
                     </div>
