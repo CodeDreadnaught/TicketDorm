@@ -51,7 +51,7 @@ const SignIn = () => {
                     fetchUserOrder(data.user._id, data.accessToken)
                     .then(data => {
                         setOrderInformation(data);
-                        localStorage.getItem("orderInformation", JSON.stringify(data));
+                        localStorage.setItem("orderInformation", JSON.stringify(data));
                     })
                     .catch(error => console.log(error));
 
