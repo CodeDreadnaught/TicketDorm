@@ -158,6 +158,23 @@ const sendTicketEmail = async (eventID, ticketID, transactionID) => {
     }
 };
 
+const fetchUserOrder = async (userID, token) => {
+    try {
+        const response = await fetch(`${apiUrl}/user/ticketsold/${userID}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }),
+        data = await response.json();
+
+         return data;
+    } catch(error) {
+        throw Error("CodeDreadnaught, TicketDorm is unable to load this order from the server.");
+    }
+};
+
 export { createAccount, signIn, fetchAllEvents, verifyOTPRequest, forgetPasswordRequest, 
-resetPasswordRequest, buyTicket, buyFreeTicket, createEventRequest, sendTicketEmail 
+resetPasswordRequest, buyTicket, buyFreeTicket, createEventRequest, sendTicketEmail,
+fetchUserOrder 
 };

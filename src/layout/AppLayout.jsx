@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 const AppLayout = () => {
     const [ user, setUser ] = useState(null),
     [ token, setToken ] = useState(localStorage.getItem("site") || null),
+    [orderInformation, setOrderInformation] = useState(null),
     [ verificationEmail, setVerificationEmail ] = useState(""),
     [ hasOTP, setHasOTP ] = useState(false),
     [ allEvents, setAllEvents ] = useState([]),
@@ -41,7 +42,7 @@ const AppLayout = () => {
                 showLoadingAnimation, setShowLoadingAnimation, showModal, setShowModal, verificationEmail, 
                 setVerificationEmail, hasOTP, setHasOTP, currentEvent, setCurrentEvent, verifyPayment, setVerifyPayment,
                 eventID, setEventID, ticketID, setTicketID, showProfileDropdown, setShowProfileDropdown, displayedElement, 
-                setDisplayedElement
+                setDisplayedElement, orderInformation, setOrderInformation
                 }}>
                 <EnsurePageLoadsFromTop>
                     <Alert />

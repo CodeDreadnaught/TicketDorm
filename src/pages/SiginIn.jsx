@@ -2,14 +2,14 @@ import { useState, useContext } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
-import { signIn } from "../requests/APIRequest";
+import { signIn, fetchUserOrder } from "../requests/APIRequest";
 import ArrowLeft from "../assets/icons/caret-left-arrow.svg";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
 const SignIn = () => {
     const navigate = useNavigate(),
-    { setShowModal, setUser, setToken, setShowLoadingAnimation } = useContext(AppContext);
+    { setShowModal, setUser, setToken, setOrderInformation, setShowLoadingAnimation } = useContext(AppContext);
 
     const [ showPassword, setShowPassword ] = useState(false),
     [formData, setFormData] = useState({
@@ -47,6 +47,10 @@ const SignIn = () => {
                     setUser(data.user);
                     setToken(data.accessToken);
                     localStorage.setItem("site", data.accessToken);
+                    
+                    fetchUserOrder(data.user._id, data.accessToken)
+                    .then(data => setOrderInformation(data))
+                    .catch(error => console.log(error));
 
                     setShowModal({
                         heading: "You're Logged In",
