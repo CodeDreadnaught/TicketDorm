@@ -14,6 +14,7 @@ const HeaderProfileSectionMenu = () => {
                     setUser(null);
                     setToken(null);
                     localStorage.removeItem("site");
+                    localStorage.removeItem("orderInformation");
                     setShowProfileDropdown(false);
                 }}>Sign Out</Link></li>
             </ul>

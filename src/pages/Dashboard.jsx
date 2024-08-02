@@ -29,7 +29,7 @@ const Dashboard = () => {
                                 </ul>
                             </section>
                         </section>
-                        <section className="py-[1.6rem] lg:py-[4rem] w-full min-h-[80vh]">
+                        <section className="py-[1.6rem] lg:py-[4rem] w-full min-h-[calc(100dvh-5rem)]">
                             {dashboardElement}
                         </section>
                     </div>

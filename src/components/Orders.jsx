@@ -29,7 +29,7 @@ const Orders = () => {
                         {buyer}
                     </section>
                     <section className="flex-[0_0_13rem]">
-                        <h2 className="text-[1.65] font-medium h-[3rem]">Amount</h2>
+                        <h2 className="text-[1.65] font-medium h-[3rem]">Admission Type</h2>
                         {amount}
                     </section>
                     <section className="flex-[0_0_10rem]">

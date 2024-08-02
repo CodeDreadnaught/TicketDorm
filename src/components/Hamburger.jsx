@@ -51,6 +51,7 @@ const Hamburger = () => {
                         setUser(null);
                         setToken(null);
                         localStorage.removeItem("site");
+                        localStorage.removeItem("orderInformation");
                         navigate("/");
                     }}>Logout</NavLink></li>}
                 </ul>

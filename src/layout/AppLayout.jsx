@@ -11,7 +11,7 @@ import Footer from "../components/Footer";
 const AppLayout = () => {
     const [ user, setUser ] = useState(null),
     [ token, setToken ] = useState(localStorage.getItem("site") || null),
-    [orderInformation, setOrderInformation] = useState(null),
+    [orderInformation, setOrderInformation] = useState(localStorage.getItem("orderInformation") || null),
     [ verificationEmail, setVerificationEmail ] = useState(""),
     [ hasOTP, setHasOTP ] = useState(false),
     [ allEvents, setAllEvents ] = useState([]),
