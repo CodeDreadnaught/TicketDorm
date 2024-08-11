@@ -40,9 +40,8 @@ const App = () => {
         <Route path="/reset-password/:id" element={<ResetPassword />}  />
         <Route path="/checkout-page/:id" element={<CheckoutPage />} loader={currentEventLoader} errorElement={<TriggerAlert />} />
         <Route path="/search" element={<MobileSearchBar />}  />
-        <Route path="/dashboard" element={<Dashboard />}  />
         <Route element={<ProtectedRoutes />}>
-
+        <Route path="/dashboard" element={<Dashboard />}  />
         </Route>
         <Route element={<ProtectedTokenRoutes />}>
         <Route path="/sell-tickets" element={<CreateEvent />} />

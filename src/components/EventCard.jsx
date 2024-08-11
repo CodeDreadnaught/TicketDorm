@@ -18,25 +18,25 @@ const EventCard = props => {
 
     switch(day) {
         case 0 : 
-        eventDay = "Sunday";
+        eventDay = "Sun";
         break;
         case 1 : 
-        eventDay = "Monday";
+        eventDay = "Mon";
         break;
         case 2 : 
-        eventDay = "Tuesday";
+        eventDay = "Tue";
         break;
         case 3 : 
-        eventDay = "Wednesday";
+        eventDay = "Wed";
         break;
         case 4 : 
-        eventDay = "Thursday";
+        eventDay = "Thu";
         break;
         case 5 : 
-        eventDay = "Friday";
+        eventDay = "Fri";
         break;
         case 6 : 
-        eventDay = "Saturday";
+        eventDay = "Sat";
         break;
     }
 

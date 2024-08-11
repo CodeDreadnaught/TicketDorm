@@ -17,7 +17,7 @@ const Alert = () => {
         if (showModal.success) {
             setTimeout(() => {
                 setShowModal({heading: "", message: "", on: false});
-            }, 2500);
+            }, 2700);
         }
 
         return () => document.body.classList.remove("prevent-scrolling");

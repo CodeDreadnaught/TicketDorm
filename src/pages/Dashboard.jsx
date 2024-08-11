@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import AppContext from "../context/AppContext";
+import DashboardHome from "../components/DashboardHome";
+import DashboardEvents from "../components/DashboardEvents";
+import DashboardFinance from "../components/DashboardFinance";
 import Orders from "../components/Orders";
 
 const Dashboard = () => {
-    const [ activeComponent, setActiveComponent] = useState("orders"),
-    [dashboardElement, setDashboardElement] = useState(<Orders />);
+    const [ activeComponent, setActiveComponent] = useState("home"),
+    { dashboardElement, setDashboardElement } = useContext(AppContext);
+
+    useEffect(() => {
+        setDashboardElement(<DashboardHome />);
+    }, []);
 
     const activeComponentHandler = component => {
         setActiveComponent(component);
@@ -22,14 +30,26 @@ const Dashboard = () => {
                         <section className="w-[25.6rem] hidden lg:block bg-[#F8F9FA] pt-[4rem]">
                             <section>
                                 <ul>
-                                    <li className={`h-[5rem] font-medium center ${activeComponent === "home" ? "bg-[#007BFF] text-white font-semibold" : null}`} onClick={() => activeComponentHandler("home")}><NavLink>Home</NavLink></li>
-                                    <li className={`h-[5rem] font-medium center ${activeComponent === "orders" ? "bg-[#007BFF] text-white font-semibold" : null}`} onClick={() => activeComponentHandler("orders")}><NavLink>Orders</NavLink></li>
-                                    <li className={`h-[5rem] font-medium center ${activeComponent === "events" ? "bg-[#007BFF] text-white font-semibold" : null}`} onClick={() => activeComponentHandler("events")}><NavLink>Events</NavLink></li>
-                                    <li className={`h-[5rem] font-medium center ${activeComponent === "finance" ? "bg-[#007BFF] text-white font-semibold" : null}`} onClick={() => activeComponentHandler("finance")}><NavLink>Finance</NavLink></li>
+                                    <li className={`h-[5rem] font-medium center ${activeComponent === "home" ? "bg-[#007BFF] text-white font-semibold" : null}`} onClick={() => {
+                                        activeComponentHandler("home");
+                                        setDashboardElement(<DashboardHome />);
+                                        }}><NavLink>Home</NavLink></li>
+                                    <li className={`h-[5rem] font-medium center ${activeComponent === "orders" ? "bg-[#007BFF] text-white font-semibold" : null}`} onClick={() => {
+                                        activeComponentHandler("orders");
+                                        setDashboardElement(<Orders />);
+                                        }}><NavLink>Orders</NavLink></li>
+                                    <li className={`h-[5rem] font-medium center ${activeComponent === "events" ? "bg-[#007BFF] text-white font-semibold" : null}`} onClick={() => {
+                                        activeComponentHandler("events")
+                                        setDashboardElement(<DashboardEvents />);
+                                        }}><NavLink>Events</NavLink></li>
+                                    <li className={`h-[5rem] font-medium center ${activeComponent === "finance" ? "bg-[#007BFF] text-white font-semibold" : null}`} onClick={() => {
+                                        activeComponentHandler("finance")
+                                        setDashboardElement(<DashboardFinance />);
+                                        }}><NavLink>Finance</NavLink></li>
                                 </ul>
                             </section>
                         </section>
-                        <section className="py-[1.6rem] lg:py-[4rem] w-full min-h-[calc(100vh-5rem)]">
+                        <section className="py-[1.6rem] lg:py-[4rem] w-full min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-8rem)]">
                             {dashboardElement}
                         </section>
                     </div>

@@ -2,14 +2,14 @@ import { useState, useContext } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
-import { signIn, fetchUserOrder } from "../requests/APIRequest";
+import { signIn, fetchUserOrder, fetchUserEvents } from "../requests/APIRequest";
 import ArrowLeft from "../assets/icons/caret-left-arrow.svg";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
 const SignIn = () => {
     const navigate = useNavigate(),
-    { setShowModal, setUser, setToken, setOrderInformation, setShowLoadingAnimation } = useContext(AppContext);
+    { setShowModal, setUser, setToken, setOrderInformation, setEventsInformation, setShowLoadingAnimation } = useContext(AppContext);
 
     const [ showPassword, setShowPassword ] = useState(false),
     [formData, setFormData] = useState({
@@ -55,9 +55,16 @@ const SignIn = () => {
                     })
                     .catch(error => console.log(error));
 
+                    fetchUserEvents(data.user._id, data.accessToken)
+                    .then(data => {
+                        setEventsInformation(data);
+                        localStorage.setItem("eventsInformation", JSON.stringify(data));
+                    })
+                    .catch(error => console.log(error));
+
                     setShowModal({
-                        heading: "You're Logged In",
-                        message: `Welcome ${data.user.firstname}, lets create unforgettable experiences with ease and confidence.`,
+                        heading: data.user.firstname.toLowerCase() === "nenkemun" ? <span>Káàbọ̀, Morẹ́nikéjì Mí <span className="text-[red]">&hearts;</span></span> : "You're Logged In",
+                        message: data.user.firstname.toLowerCase() === "nenkemun" ? <section><p>Every single time you log in, I want you to be reminded that my heart beats for you alone.</p><p className="text-[1.8rem]">&#x1F91F;</p></section> : `Welcome ${data.user.firstname}, lets create unforgettable experiences with ease and confidence.`,
                         on: true,
                         success: true
                     });

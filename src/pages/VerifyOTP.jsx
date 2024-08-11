@@ -6,10 +6,10 @@ import AdditionalActionsAccountWrapper from "../components/AdditionalActionsAcco
 import PhoneIcon from "../assets/icons/phone-icon.svg";
 import AdditionalActionsCTA from "../components/AdditionalActionsCTA";
 import OTPRegulator from "../utilis/OTPRegulator";
-import { verifyOTPRequest } from "../requests/APIRequest";
+import { verifyOTPRequest, fetchUserOrder, fetchUserEvents } from "../requests/APIRequest";
 
 const VerifyOTP = () => {
-    const {  setUser, setToken, verificationEmail, setShowLoadingAnimation, setShowModal } = useContext(AppContext),
+    const {  setUser, setToken, verificationEmail, setOrderInformation, setEventsInformation, setShowLoadingAnimation, setShowModal } = useContext(AppContext),
     navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -49,6 +49,20 @@ const VerifyOTP = () => {
                     setUser(data.user);
                     setToken(data.accessToken);
                     localStorage.setItem("site", data.accessToken);
+
+                    fetchUserOrder(data.user._id, data.accessToken)
+                    .then(data => {
+                        setOrderInformation(data);
+                        localStorage.setItem("orderInformation", JSON.stringify(data));
+                    })
+                    .catch(error => console.log(error));
+
+                    fetchUserEvents(data.user._id, data.accessToken)
+                    .then(data => {
+                        setEventsInformation(data);
+                        localStorage.setItem("eventsInformation", JSON.stringify(data));
+                    })
+                    .catch(error => console.log(error));
 
                     setShowModal({
                         heading: "Account Verified",

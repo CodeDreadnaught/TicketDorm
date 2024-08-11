@@ -160,7 +160,7 @@ const sendTicketEmail = async (eventID, ticketID, transactionID) => {
 
 const fetchUserOrder = async (userID, token) => {
     try {
-        const response = await fetch(`${apiUrl}/user/ticketsold/${userID}`, {
+        const response = await fetch(`${apiUrl}/user/ticketsold/${userID}/`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -174,7 +174,23 @@ const fetchUserOrder = async (userID, token) => {
     }
 };
 
+const fetchUserEvents = async (userID, token) => {
+    try {
+        const response = await fetch(`${apiUrl}/user/eventscreated/${userID}/`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }),
+        data = await response.json();
+
+         return data;
+    } catch(error) {
+        throw Error("CodeDreadnaught, TicketDorm is unable to load events created from the server.");
+    }
+};
+
 export { createAccount, signIn, fetchAllEvents, verifyOTPRequest, forgetPasswordRequest, 
 resetPasswordRequest, buyTicket, buyFreeTicket, createEventRequest, sendTicketEmail,
-fetchUserOrder 
+fetchUserOrder, fetchUserEvents 
 };

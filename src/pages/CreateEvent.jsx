@@ -25,8 +25,11 @@ const CreateEvent = () => {
         aboutEvent: ""
     });
 
+    const [ showDisclaimer, setShowDisclaimer ] = useState(false),
+    modalStyle = showDisclaimer ? "fixed h-screen w-screen z-50 overflow-y-hidden" : "hidden";
+
     const [ chosenDate, chosenMonth, chosenYear] = formData.eventDate.split("-").reverse(),
-    chosenEventDate = `${chosenMonth}-${chosenDate}-${chosenYear}`,
+    chosenEventDate = `${chosenMonth}/${chosenDate}/${chosenYear}`,
     eventDate = new Date(chosenEventDate); 
 
     const day = eventDate.getDay(),
@@ -163,6 +166,11 @@ const CreateEvent = () => {
         });
     };
 
+    const commisionNotificationHandler = event => {
+        event.preventDefault();
+        setShowDisclaimer(true);
+    };
+
     const submitFormHandler = event => {
         event.preventDefault();
         setShowLoadingAnimation(true);
@@ -239,7 +247,7 @@ const CreateEvent = () => {
                 </Helmet>
             <main>
                 <div className="fixed w-screen h-screen px-[1.6rem] lg:px-[8.8rem] bg-[rgba(245,250,255,1)] font-montserrat pb-[1.6rem] lg:center">
-                    <form className="bg-white px-[1rem] py-[0.5rem] lg:px-[2rem] mt-[1.6rem] rounded-[10px] lg:w-[60vw]" onSubmit={submitFormHandler}>
+                    <form className="bg-white px-[1rem] py-[0.5rem] lg:px-[2rem] mt-[1.6rem] rounded-[10px] lg:w-[60vw]" onSubmit={formData.ticketPrice > 0 ? commisionNotificationHandler : submitFormHandler}>
                         <section className="flex items-center mt-[1.6rem] mb-[2.65rem] lg:mb-[4rem]">
                             <span className="size-[3rem] inline-block rounded-[50%] center mr-[1rem] bg-blue-300 cursor-pointer" onClick={arrowLeftHandler}>
                                 <img src={ArrowLeft} alt="Caret Left" />
@@ -308,6 +316,24 @@ const CreateEvent = () => {
                             <button className={`bg-[#0E4887] center text-white h-[3.5rem] font-medium w-[15rem] lg:w-[17rem] rounded-[10px] ${submitButtonDisplayState}`}>Create Event</button>
                         </section>
                     </form>
+                </div>
+                <div className={modalStyle}>
+                    <div className="backdrop-blur-[2px] size-full bg-[rgba(203,0,227,0.2)] center font-montserrat">
+                    <form className="w-[31rem] py-[1.8rem] px-[1.45rem] bg-white rounded-[14.24px]" onSubmit={submitFormHandler}>
+                    <div className="min-h-[17.2rem] relative text-center center">
+                        <h1 className="text-[2.15rem] font-semibold mb-[1rem] leading-[41px]">Comission Policy</h1>
+                        <p className="mb-[1.5rem]">A 10% commission will be charged on each ticket sold, you are encouraged to factor this in your pricing.</p>
+                        <section className="flex items-center justify-between w-full">
+                            <section className="w-[8rem] h-[3rem] center bg-red-700 text-white rounded-[5px] cursor-pointer" onClick={() => {
+                                setShowDisclaimer(false);
+                            }}>Cancel</section>
+                            <button className="w-[8rem] h-[3rem] center bg-[#0E4887] text-white rounded-[5px] cursor-pointer" onClick={() => {
+                                setShowDisclaimer(false);
+                            }}>Agree</button>
+                        </section>
+                    </div>
+                    </form>
+                    </div>
                 </div>
             </main>
         </HelmetProvider>

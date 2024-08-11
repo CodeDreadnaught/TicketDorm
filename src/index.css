@@ -86,7 +86,7 @@
   .about-hero {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./assets/about-us-images/hero-bg.jpg);
   }
-  .event-card-wrapper::-webkit-scrollbar, .dashboard-scroll::-webkit-scrollbar, .searched-events::-webkit-scrollbar {
+  .event-card-wrapper::-webkit-scrollbar, .dashboard-scroll::-webkit-scrollbar, .searched-events::-webkit-scrollbar, .dashboard-event-list::-webkit-scrollbar {
     @apply hidden
   }
   .preview-about-section {
@@ -95,6 +95,9 @@
     line-clamp: 2;
     -webkit-line-clamp: 2;
     -ms-line-clamp: 2;
+  }
+  .app-dot {
+    transition: all 0.05s linear;
   }
 }
 
