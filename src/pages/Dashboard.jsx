@@ -12,7 +12,9 @@ const Dashboard = () => {
     { dashboardElement, setDashboardElement } = useContext(AppContext);
 
     useEffect(() => {
-        setDashboardElement(<DashboardHome />);
+        if (window.innerWidth > 900) {
+            setDashboardElement(<DashboardHome />);
+        }
     }, []);
 
     const activeComponentHandler = component => {
