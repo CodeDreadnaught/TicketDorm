@@ -63,8 +63,8 @@ const SignIn = () => {
                     .catch(error => console.log(error));
 
                     setShowModal({
-                        heading: data.user.firstname.toLowerCase() === "nenkemun" ? <span>Káàbọ̀, Morẹ́nikéjì Mí <span className="text-[red]">&hearts;</span></span> : "You're Logged In",
-                        message: data.user.firstname.toLowerCase() === "nenkemun" ? <section><p>Every single time you log in, I want you to be reminded that my heart beats for you alone.</p><p className="text-[1.8rem]">&#x1F91F;</p></section> : `Welcome ${data.user.firstname}, lets create unforgettable experiences with ease and confidence.`,
+                        heading: data.user.firstname.toLowerCase() === "nenkemun " ? <span>Káàbọ̀, Morẹ́nikéjì Mí <span className="text-[red]">&hearts;</span></span> : "You're Logged In",
+                        message: data.user.firstname.toLowerCase() === "nenkemun " ? <section><p>Every single time you log in, I want you to be reminded that my heart beats for you alone.</p><p className="text-[1.8rem]">&#x1F91F;</p></section> : `Welcome ${data.user.firstname}, lets create unforgettable experiences with ease and confidence.`,
                         on: true,
                         success: true
                     });
