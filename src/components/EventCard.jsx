@@ -90,7 +90,7 @@ const EventCard = props => {
                     <p className="text-[#1B67BB] text-[1.2rem] leading-[1.452rem] lg:text-[1.6rem] lg:leading-[1.936rem] mt-[0.4rem] lg:mt-[1.2rem]">
                         {`${eventDay} ${eventMonth} ${date}, ${year}`}
                         <span className="hidden lg:inline"> ●</span> {props.eventTime} GMT +1</p>
-                    <p className="my-[0.4rem] lg:my-[0.8rem] text-[1.3rem] leading-[1.573rem] lg:text-[1.6rem] lg:leading-[1.936rem]">{props.ticketPrice === 0 ? "Free" : <span>Price ● ₦{props.ticketPrice}</span>}</p>
+                    <p className="my-[0.4rem] lg:my-[0.8rem] text-[1.3rem] leading-[1.573rem] lg:text-[1.6rem] lg:leading-[1.936rem] max-w-full overflow-hidden whitespace-nowrap text-ellipsis">{props.ticketPrice === 0 ? "Free" : <span>Price ● ₦{props.ticketPrice}</span>}</p>
                     <p className="text-[1.3rem] leading-[1.573rem] lg:text-[1.6rem] lg:leading-[1.936rem] max-w-full overflow-hidden whitespace-nowrap text-ellipsis">{props.eventLocation}</p>
                 </section>
             </section>
